@@ -1,0 +1,13 @@
+.work__navigation__home {
+  color: black;
+  text-decoration: none;
+}
+
+.work__navigation__right {
+  float: right;
+}
+
+.work__navigation__prev,
+.work__navigation__next {
+  cursor: pointer;
+}
