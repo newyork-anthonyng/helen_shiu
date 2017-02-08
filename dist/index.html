@@ -7,55 +7,71 @@
   </head>
 
   <body>
-    <header>
-      <img src="assets/logo.png" alt="Helen Shiu" />
+    <div class="container">
+      <header>
+        <a class="logo" href="#">
+          <img src="assets/logo.png" alt="Helen Shiu" />
+        </a>
 
-      <div class="menu">
-        <a class="menu__link" href="#">Work</a>
-        <a class="menu__link" href="#about">About</a>
+        <div class="menu">
+          <a class="menu__link" href="#">Work</a>
+          <a class="menu__link" href="#about">About</a>
+        </div>
+      </header>
+
+      <section class="work__thumbnails">
+        <div class="work__thumbnails__row">
+          <a class="work__thumbnail" href="#wander">
+            <div class="work__thumbnail__overlay"></div>
+            <img class="work__thumbnail__img" src="assets/thumbnails/thumbnail1.jpg" />
+            <div class="work__thumbnail__text">Wanderer</div>
+          </a>
+          <a class="work__thumbnail" href="#spark">
+            <div class="work__thumbnail__overlay"></div>
+            <img class="work__thumbnail__img" src="assets/thumbnails/thumbnail2.jpg" />
+            <div class="work__thumbnail__text">Spark</div>
+          </a>
+        </div>
+        <div class="work__thumbnails__row">
+          <a class="work__thumbnail" href="#nest">
+            <div class="work__thumbnail__overlay"></div>
+            <img class="work__thumbnail__img" src="assets/thumbnails/thumbnail3.jpg" />
+            <div class="work__thumbnail__text">Nest</div>
+          </a>
+          <a class="work__thumbnail" href="#swimtribe">
+            <div class="work__thumbnail__overlay"></div>
+            <img class="work__thumbnail__img" src="assets/thumbnails/thumbnail4.jpg" />
+            <div class="work__thumbnail__text">Swim Tribe</div>
+          </a>
+        </div>
+      </section>
+
+      <div class="work__container wander">Work wanderer</div>
+      <div class="work__container spark">Work spark</div>
+      <div class="work__container nest">Work nest</div>
+      <div class="work__container swimtribe">Work swim tribe</div>
+
+      <div class="work__navigation">
+        <a class="work__navigation__home" href="#">back to work</a>
+
+        <div class="work__navigation__right">
+          <span class="work__navigation__prev">prev</span>
+          /
+          <span class="work__navigation__next">next</span>
+        </div>
       </div>
-    </header>
 
-    <section class="work__grid">
-      <a href="#wander">
-        <div class="work__square">Wanderer</div>
-      </a>
-      <a href="#spark">
-        <div class="work__square">Spark</div>
-      </a>
-      <a href="#nest">
-        <div class="work__square">Nest</div>
-      </a>
-      <a href="#swimtribe">
-        <div class="work__square">Swim Tribe</div>
-      </a>
-    </section>
-
-    <div class="work__container wander">Work wanderer</div>
-    <div class="work__container spark">Work spark</div>
-    <div class="work__container nest">Work nest</div>
-    <div class="work__container swimtribe">Work swim tribe</div>
-
-    <div class="work__navigation">
-      <a class="work__navigation__home" href="#">back to work</a>
-
-      <div class="work__navigation__right">
-        <span class="work__navigation__prev">prev</span>
-        /
-        <span class="work__navigation__next">next</span>
-      </div>
+      <section id="about">
+        <p>
+          NYC based graphic designer / ex-tax accountant who loves Disney, dogs (especially big ones),
+          roller coasters, deadlifts and pastel yellow.
+        </p>
+        <p>
+          If you'd like to see more work, collaborate, or just say hello, lets stay in touch! message me at
+          <a href="mailto:helen.shiu@outlook.com">helen.shiu@outlook.com</a>
+        </p>
+      </section>
     </div>
-
-    <section id="about">
-      <p>
-        NYC based graphic designer / ex-tax accountant who loves Disney, dogs (especially big ones),
-        roller coasters, deadlifts and pastel yellow.
-      </p>
-      <p>
-        If you'd like to see more work, collaborate, or just say hello, lets stay in touch! message me at
-        <a href="mailto:helen.shiu@outlook.com">helen.shiu@outlook.com</a>
-      </p>
-    </section>
 
     <script type="text/javascript" src="app.js"></script>
   </body>

@@ -3,7 +3,7 @@ class Router {
     this.workContainerEl = Array.prototype.slice.apply(document.querySelectorAll('.work__container'));
     this.prevNavEl = document.querySelector('.work__navigation__prev');
     this.nextNavEl = document.querySelector('.work__navigation__next');
-    const links = Array.prototype.slice.apply(document.querySelectorAll('.work__grid a'));
+    const links = Array.prototype.slice.apply(document.querySelectorAll('.work__thumbnails a'));
     this.linkHrefs = links.map((e) => {
       return e.href.split('#')[1];
     });
