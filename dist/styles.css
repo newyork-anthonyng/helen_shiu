@@ -1,3 +1,17 @@
+header {
+  align-items: flex-end;
+  display: flex;
+}
+
+.menu {
+  margin-left: auto;
+}
+
+.menu__link {
+  color: black;
+  text-decoration: none;
+}
+
 .work__navigation__home {
   color: black;
   text-decoration: none;
