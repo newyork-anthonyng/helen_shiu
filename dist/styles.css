@@ -35,7 +35,7 @@ header {
 .container {
   background-color: #fcfcfc;
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 1000px;
   padding: 0 16px;
   transform: translateY(-80px);
   transition: transform 0.15s ease-in-out;
@@ -117,7 +117,7 @@ header {
 }
 
 .menu__link:nth-child(even) {
-  margin-left: 18px;
+  margin-left: 40px;
 }
 
 .menu__link--active,
@@ -157,17 +157,31 @@ header {
 .work__thumbnails__row {
   clear: both;
   padding-top: 20px;
+  width: 100%;
 }
 
 .work__thumbnail {
-  float: left;
-  padding-bottom: calc(50% - 10px);
+  display: block;
   position: relative;
-  width: calc(50% - 10px);
 }
 
-.work__thumbnail:nth-child(even) {
-  float: right;
+@media (min-width: 700px) {
+  .work__thumbnail {
+    padding-bottom: calc(50% - 10px);
+    width: calc(50% - 10px);
+  }
+}
+
+@media (min-width: 700px) {
+  .work__thumbnail {
+    float: left;
+  }
+}
+
+@media (min-width: 700px) {
+  .work__thumbnail:nth-child(even) {
+    float: right;
+  }
 }
 
 .work__thumbnail:visited {
@@ -192,15 +206,20 @@ header {
 
 .work__thumbnail__img {
   height: 100%;
-  left: 0;
-  position: absolute;
   width: 100%;
+}
+
+@media (min-width: 700px) {
+  .work__thumbnail__img {
+    left: 0;
+    position: absolute;
+  }
 }
 
 .work__thumbnail__text {
   font-size: 24px;
   left: 50%;
-  opacity: 0;
+  opacity: 1;
   position: absolute;
   text-align: center;
   top: 50%;
@@ -211,6 +230,7 @@ header {
 @media (min-width: 700px) {
   .work__thumbnail__text {
     font-size: 30px;
+    opacity: 0;
   }
 }
 
@@ -264,21 +284,34 @@ header {
   margin: 0;
 }
 
+.work__container__text p:nth-last-child(1) {
+  margin-top: 50px;
+}
+
 .about {
   display: none;
   margin-top: 30px;
+}
+
+@media (min-width: 700px) {
+  .about {
+    float: right;
+    width: 40%;
+  }
 }
 
 .about--active {
   display: block;
 }
 
-.about__email {
+.about__email,
+.footer__link {
   border-bottom: 1px solid #111;
   border-color: rgba(17,17,17,.2);
 }
 
-.about__email:hover {
+.about__email:hover,
+.footer__link:hover {
   border-color: #111;
 }
 
@@ -296,7 +329,7 @@ header {
 
 footer {
   clear: both;
-  padding: 30px 16px;
+  padding: 80px 16px;
   margin: 0 auto;
   max-width: 800px;
 }
