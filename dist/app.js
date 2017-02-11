@@ -6,6 +6,10 @@ class Router {
     this.aboutEl = document.querySelector('.about');
     this.workShowcaseEl = document.querySelector('.work__showcase');
     this.thumbnailsEl = document.querySelector('.work__thumbnails');
+    this.desktopWorkLinkEl = document.querySelector('.menu__link[href="#"]');
+    this.desktopAboutLinkEl = document.querySelector('.menu__link[href="#about"]');
+    this.mobileMenuEl = document.querySelector('.menu__mobile');
+
     const links = Array.prototype.slice.apply(document.querySelectorAll('.work__thumbnails a'));
     this.linkHrefs = links.map((e) => {
       return e.href.split('#')[1];
@@ -21,15 +25,16 @@ class Router {
     this.getIndexOfCurrentHash = this.getIndexOfCurrentHash.bind(this);
     this.showHomePage = this.showHomePage.bind(this);
     this.showAboutPage = this.showAboutPage.bind(this);
+    this.updateMenuLinks = this.updateMenuLinks.bind(this);
+    this.updateNavigation = this.updateNavigation.bind(this);
 
     this.addEventListeners();
     this.handleHashChange();
+    this.updateNavigation();
   }
 
   addEventListeners() {
     window.addEventListener('hashchange', this.handleHashChange);
-
-    // add event listener to the navigation elements
     this.prevNavEl.addEventListener('click', this.handlePrevClick);
     this.nextNavEl.addEventListener('click', this.handleNextClick);
   }
@@ -44,6 +49,11 @@ class Router {
     } else {
       this.showWork(hash);
     }
+
+    this.updateMenuLinks(hash);
+    this.updateNavigation();
+
+    window.scroll(0, 0);
   }
 
   getCurrentHash() {
@@ -84,9 +94,20 @@ class Router {
     });
   }
 
+  updateMenuLinks(hash) {
+    if (hash === 'about') {
+      this.desktopAboutLinkEl.classList.add('menu__link--active');
+      this.desktopWorkLinkEl.classList.remove('menu__link--active');
+    } else {
+      this.desktopWorkLinkEl.classList.add('menu__link--active');
+      this.desktopAboutLinkEl.classList.remove('menu__link--active');
+    }
+
+    this.mobileMenuEl.classList.remove('menu__mobile--active');
+  }
+
   handlePrevClick() {
     const index = this.getIndexOfCurrentHash();
-
     if (index <= 0) return;
 
     const prevHash = this.linkHrefs[index - 1];
@@ -100,11 +121,22 @@ class Router {
 
   handleNextClick() {
     const index = this.getIndexOfCurrentHash();
-
     if (index >= this.linkHrefs.length - 1) return;
 
     const nextHash = this.linkHrefs[index + 1];
     window.location.hash = nextHash;
+  }
+
+  updateNavigation() {
+    this.prevNavEl.classList.remove('work__navigation--inactive');
+    this.nextNavEl.classList.remove('work__navigation--inactive');
+
+    const index = this.getIndexOfCurrentHash();
+    if (index <= 0) {
+      this.prevNavEl.classList.add('work__navigation--inactive');
+    } else if (index >= this.linkHrefs.length - 1) {
+      this.nextNavEl.classList.add('work__navigation--inactive');
+    }
   }
 }
 
