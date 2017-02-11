@@ -89,4 +89,16 @@ class Router {
   }
 }
 
+class MobileNav {
+  constructor() {
+    this.mobileNavToggleEl = document.querySelector('.menu__mobile__toggle');
+    this.mobileNavEl = document.querySelector('.menu__mobile');
+
+    this.mobileNavToggleEl.addEventListener('click', () => {
+      this.mobileNavEl.classList.toggle('menu__mobile--active');
+    });
+  }
+}
+
 new Router();
+new MobileNav();

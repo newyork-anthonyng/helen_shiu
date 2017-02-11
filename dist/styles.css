@@ -1,12 +1,29 @@
+ul {
+  padding: 0;
+}
+
 header {
   align-items: flex-end;
   display: flex;
 }
 
 .container {
+  background-color: white;
   margin: 0 auto;
   max-width: 700px;
+  transform: translateY(-50px);
+  transition: transform 0.15s ease-in-out;
   width: 100%;
+}
+
+@media (min-width: 700px) {
+  .container {
+    transform: translateY(0);
+  }
+}
+
+.menu__mobile--active + .container {
+  transform: translateY(0);
 }
 
 .logo {
@@ -29,6 +46,28 @@ header {
   .menu {
     display: block;
     margin-left: auto;
+  }
+}
+
+.menu__mobile {
+  opacity: 0;
+  text-align: center;
+  transition: opacity 0.15s ease-in-out;
+}
+
+.menu__mobile--active {
+  opacity: 1;
+}
+
+.menu__mobile__toggle {
+  cursor: pointer;
+  text-align: center;
+}
+
+@media (min-width: 700px) {
+  .menu__mobile,
+  .menu__mobile__toggle {
+    display: none;
   }
 }
 
