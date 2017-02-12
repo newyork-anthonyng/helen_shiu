@@ -54,12 +54,14 @@ header {
 .logo {
   margin: 0 auto;
   max-width: 300px;
+  text-align: center;
   width: 100%;
 }
 
 @media (min-width: 700px) {
   .logo {
     margin: 0;
+    text-align: left;
   }
 }
 
@@ -156,8 +158,13 @@ header {
 
 .work__thumbnails__row {
   clear: both;
-  padding-top: 20px;
   width: 100%;
+}
+
+@media (min-width: 700px) {
+  .work__thumbnails__row {
+    padding-top: 20px;
+  }
 }
 
 .work__thumbnail {
@@ -167,14 +174,9 @@ header {
 
 @media (min-width: 700px) {
   .work__thumbnail {
+    float: left;
     padding-bottom: calc(50% - 10px);
     width: calc(50% - 10px);
-  }
-}
-
-@media (min-width: 700px) {
-  .work__thumbnail {
-    float: left;
   }
 }
 
@@ -247,12 +249,12 @@ header {
   display: block;
 }
 
-@media (min-width: 700px) {
+/*@media (min-width: 700px) {
   .work__container__img__list {
     float: left;
-    width: 65%;
+    width: 75%;
   }
-}
+}*/
 
 .work__container__img {
   margin-bottom: 15px;
@@ -271,13 +273,13 @@ header {
   margin: 50px 0;
 }
 
-@media (min-width: 700px) {
+/*@media (min-width: 700px) {
   .work__container__text {
     float: right;
     margin: 0;
-    width: 30%;
+    width: 20%;
   }
-}
+}*/
 
 .work__container__text h1 {
   font-weight: 300;
@@ -329,7 +331,14 @@ header {
 
 footer {
   clear: both;
-  padding: 80px 16px;
-  margin: 0 auto;
-  max-width: 800px;
+  margin: -40px auto 0 auto;
+  padding: 0px 16px 80px 16px;
+  max-width: 1000px;
+}
+
+@media (min-width: 700px) {
+  footer {
+    margin-top: 0;
+    padding-top: 40px;
+  }
 }
