@@ -4,12 +4,19 @@
   "description": "Helen Shiu's Portfolio",
   "main": "server.js",
   "dependencies": {
+    "compression": "^1.6.2",
     "express": "^4.14.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.0.2",
+    "gulp-htmlmin": "^3.0.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "minify-html": "./node_modules/.bin/gulp minify-html",
+    "minify-css": "./node_modules/.bin/gulp minify-css",
+    "build": "npm run minify-html && npm run minify-css"
   },
   "repository": {
     "type": "git",
