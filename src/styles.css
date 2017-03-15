@@ -74,6 +74,14 @@ nav li a:hover {
   color: #FFEB94;
 }
 
+.work__thumbnails {
+  display: none;
+}
+
+.work__thumbnails--active {
+  display: block;
+}
+
 .thumbnails {
   margin-left: 100px;
   padding-right: 13px;
@@ -146,4 +154,55 @@ footer {
     margin-left: 200px;
     width: 700px;
   }
+}
+
+.about {
+  display: none;
+  margin-left: 100px;
+  padding-top: 37px;
+  padding-right: 18px;
+}
+
+@media (min-width: 700px) {
+  .about {
+    margin-left: 420px;
+    max-width: 420px;
+  }
+}
+
+.about--active {
+  display: block;
+}
+
+.about p {
+  font-size: 14px;
+  line-height: 17px;
+  margin-top: 0;
+}
+
+@media (min-width: 700px) {
+  .about p {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
+.about__icons__container {
+  display: inline-block;
+}
+
+.about__icons__email {
+  width: 27px;
+}
+
+.about__icons__cv {
+  width: 32px;
+}
+
+.about__icons__linkedin {
+  width: 25px;
+}
+
+.about__icons__behance {
+  width: 29px;
 }
