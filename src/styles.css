@@ -1,8 +1,25 @@
 html,
 body {
+  box-sizing: border-box;
   font-family: Helvetica;
   margin: 0;
   padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  padding-bottom: 40px;
+  min-height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 nav {
@@ -141,19 +158,16 @@ nav li a:hover {
 }
 
 footer {
+  bottom: 21px;
   color: rgba(155, 155, 155, 50);
-  float: right;
-  margin-left: 100px;
-  padding-bottom: 20px;
-  padding-right: 13px;
+  position: absolute;
+  right: 13px;
   text-align: right;
 }
 
 @media (min-width: 700px) {
   footer {
-    float: none;
-    margin-left: 200px;
-    max-width: 700px;
+    right: 124px;
   }
 }
 
@@ -166,8 +180,9 @@ footer {
 
 @media (min-width: 700px) {
   .about {
-    margin-left: 420px;
     max-width: 500px;
+    right: 124px;
+    position: absolute;
   }
 }
 
@@ -196,7 +211,8 @@ footer {
 .about__icons__container {
   cursor: pointer;
   display: inline-block;
-  margin-right: 29px;
+  margin-bottom: 25px;
+  margin-right: 25px;
 }
 
 .about__icons__container path {
