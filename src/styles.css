@@ -12,7 +12,7 @@ html {
 
 body {
   position: relative;
-  padding-bottom: 40px;
+  padding-bottom: 100px;
   min-height: 100%;
 }
 
@@ -234,6 +234,44 @@ footer {
     margin-bottom: 50px;
     margin-top: 50px;
   }
+}
+
+.work__showcase__navigation,
+.work__showcase__navigation button,
+.work__showcase__navigation a {
+  color: rgba(155, 155, 155, 50);
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+@media (min-width: 700px) {
+  .work__showcase__navigation,
+  .work__showcase__navigation button,
+  .work__showcase__navigation a {
+    font-size: 18px;
+  }
+}
+
+.work__showcase__navigation button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+}
+
+.work__showcase__navigation a {
+  text-decoration: none;
+}
+
+.work__showcase__navigation__main {
+  float: right;
+}
+
+button.work__showcase__navigation--inactive,
+a.work__showcase__navigation--inactive {
+  cursor: not-allowed;
+  opacity: 0.1;
+  outline: none;
 }
 
 .about {

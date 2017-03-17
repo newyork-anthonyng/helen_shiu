@@ -35,6 +35,7 @@ class Router {
     this.getIndexOfCurrentHash = this.getIndexOfCurrentHash.bind(this);
     this.handlePrevClick = this.handlePrevClick.bind(this);
     this.handleNextClick = this.handleNextClick.bind(this);
+    this.updateNavigation = this.updateNavigation.bind(this);
 
     this.addEventListeners();
     this.handleHashChange();
@@ -54,10 +55,9 @@ class Router {
     } else if (!hash || hash === 'work') {
       this.showHomePage();
     } else {
+      this.updateNavigation();
       this.showWork(hash);
     }
-
-    // this.updateNavigation();
 
     window.scroll(0, 0);
   }
@@ -117,6 +117,18 @@ class Router {
 
     const nextHash = this.linkHrefs[index + 1];
     window.location.hash = nextHash;
+  }
+
+  updateNavigation() {
+    this.prevNavEl.classList.remove('work__showcase__navigation--inactive');
+    this.nextNavEl.classList.remove('work__showcase__navigation--inactive');
+
+    const index = this.getIndexOfCurrentHash();
+    if (index <= 0) {
+      this.prevNavEl.classList.add('work__showcase__navigation--inactive');
+    } else if (index >= this.linkHrefs.length - 1) {
+      this.nextNavEl.classList.add('work__showcase__navigation--inactive');
+    }
   }
 }
 
