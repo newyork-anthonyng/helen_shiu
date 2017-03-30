@@ -12,8 +12,14 @@ html {
 
 body {
   position: relative;
-  padding-bottom: 100px;
+  padding-bottom: 320px;
   min-height: 100%;
+}
+
+@media (min-width: 700px) {
+  body {
+    padding-bottom: 150px;
+  }
 }
 
 *,
@@ -30,7 +36,9 @@ nav {
 }
 
 @media (min-width: 700px) {
-  padding-top: 42px;
+  nav {
+    padding-top: 42px;
+  }
 }
 
 .name {
@@ -76,6 +84,7 @@ nav li:first-child {
 nav li a {
   color: rgba(155, 155, 155, 50);
   font-size: 13px;
+  font-weight: 300;
   letter-spacing: 1px;
   text-decoration: none;
   text-transform: uppercase;
@@ -91,25 +100,35 @@ nav li a:hover {
   color: #FFEB94;
 }
 
-.work__thumbnails {
-  display: none;
-}
-
-.work__thumbnails--active {
-  display: block;
-}
-
-.thumbnails {
-  margin-left: 100px;
+.main__container {
+  margin-left: 150px;
+  max-width: 770px;
+  padding-bottom: 50px;
   padding-right: 13px;
-  padding-top: 42px;
+  padding-top: 37px;
 }
 
 @media (min-width: 700px) {
-  .thumbnails {
+  .main__container {
     margin-left: 200px;
-    width: 700px;
+    padding-bottom: 100px;
+    padding-top: 42px;
+    padding-right: 0;
   }
+}
+
+.work__thumbnails,
+.work__showcase,
+.work__showcase__container,
+.about {
+  display: none;
+}
+
+.work__thumbnails--active,
+.work__showcase--active,
+.work__showcase__container--active,
+.about--active {
+  display: block;
 }
 
 .thumbnail {
@@ -139,6 +158,8 @@ nav li a:hover {
   font-size: 20px;
   font-weight: normal;
   left: 50%;
+  line-height: 30px;
+  margin: 0;
   opacity: 0;
   position: absolute;
   text-align: center;
@@ -147,59 +168,36 @@ nav li a:hover {
   transform: translateX(-50%) translateY(-50%);
 }
 
-@media (min-width: 700px) {
-  .thumbnail:hover img {
-    opacity: 0;
-  }
+.thumbnail:hover img {
+  opacity: 0;
+}
 
-  .thumbnail:hover .thumbnail__description {
-    opacity: 1;
-  }
+.thumbnail:hover .thumbnail__description {
+  opacity: 1;
+  width: 100%;
 }
 
 footer {
-  bottom: 21px;
+  bottom: 288px;
   color: rgba(155, 155, 155, 50);
   position: absolute;
+  left: 100px;
   right: 13px;
   text-align: right;
 }
 
 @media (min-width: 700px) {
   footer {
-    right: 124px;
+    bottom: 130px;
+    left: 200px;
+    max-width: 770px;
   }
-}
-
-.work__showcase {
-  display: none;
-  margin-left: 100px;
-  padding-right: 22px;
-  padding-top: 37px;
-}
-
-@media (min-width: 700px) {
-  .work__showcase {
-    margin-left: 200px;
-    width: 700px;
-  }
-}
-
-.work__showcase--active {
-  display: block;
-}
-
-.work__showcase__container {
-  display: none;
-}
-
-.work__showcase__container--active {
-  display: block;
 }
 
 .work__showcase__header {
   color: #FFEB94;
   font-size: 20px;
+  font-weight: 400;
   letter-spacing: 1px;
   margin-bottom: 30px;
   margin-top: 0;
@@ -218,6 +216,40 @@ footer {
 
 .work__showcase__image img {
   width: 100%;
+}
+
+@media (min-width: 700px) {
+  .work__showcase__image__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .work__showcase__image__grid .work__showcase__image {
+    width: calc(50% - 11.5px);
+  }
+
+  .work__showcase__image__grid .work__showcase__image:nth-child(odd) {
+    margin-bottom: 21px;
+  }
+
+  .work__showcase__image__grid2 {
+    margin-bottom: 40px;
+  }
+
+  .work__showcase__image__grid2 .work__showcase__image {
+    display: inline-block;
+  }
+
+  .work__showcase__image__grid2 > .work__showcase__image {
+    width: calc(66% - 12.5px);
+  }
+
+  .work__showcase__image__grid__column {
+    display: inline-block;
+    float: right;
+    width: calc(34.3% - 12.5px);
+  }
 }
 
 .work__showcase__text {
@@ -239,9 +271,16 @@ footer {
 .work__showcase__navigation,
 .work__showcase__navigation button,
 .work__showcase__navigation a {
+  clear: both;
   color: rgba(155, 155, 155, 50);
   font-size: 13px;
+  font-weight: 300;
   text-transform: uppercase;
+}
+
+.work__showcase__navigation button:hover,
+.work__showcase__navigation a:hover {
+  color: #FFEB94;
 }
 
 @media (min-width: 700px) {
@@ -269,30 +308,9 @@ footer {
 
 button.work__showcase__navigation--inactive,
 a.work__showcase__navigation--inactive {
-  cursor: not-allowed;
-  opacity: 0.1;
+  cursor: default;
+  opacity: 0.3;
   outline: none;
-}
-
-.about {
-  display: none;
-  margin-left: 100px;
-  padding-top: 37px;
-  padding-right: 18px;
-}
-
-@media (min-width: 700px) {
-  .about {
-    left: 200px;
-    margin-left: 0;
-    max-width: 700px;
-    padding-right: 0;
-    position: absolute;
-  }
-}
-
-.about--active {
-  display: block;
 }
 
 .about p {
@@ -310,7 +328,7 @@ a.work__showcase__navigation--inactive {
 
 .about__icons {
   margin-bottom: 50px;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .about__icons__container {
