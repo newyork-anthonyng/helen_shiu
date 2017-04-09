@@ -11,15 +11,9 @@ html {
 }
 
 body {
-  position: relative;
-  padding-bottom: 320px;
   min-height: 100%;
-}
-
-@media (min-width: 700px) {
-  body {
-    padding-bottom: 150px;
-  }
+  position: relative;
+  overflow: hidden;
 }
 
 *,
@@ -42,15 +36,16 @@ nav {
 }
 
 .name {
+  bottom: -11px;
   color: #FFEB94;
   font-size: 55px;
   font-weight: bold;
+  left: 20px;
   letter-spacing: 2px;
   line-height: 43px;
   margin: 0;
-  position: absolute;
+  position: fixed;
   text-transform: uppercase;
-  top: 510px;
   transform: rotate(-90deg);
   transform-origin: top left;
   width: 360px;
@@ -58,9 +53,9 @@ nav {
 
 @media (min-width: 700px) {
   .name {
+    bottom: -34px;
     font-size: 80px;
     line-height: 60px;
-    top: 670px;
     width: 510px;
   }
 }
@@ -100,10 +95,14 @@ nav li a:hover {
   color: #FFEB94;
 }
 
+.scroll_wrapper {
+  height: calc(100vh - 121px);
+  overflow-y: scroll;
+}
+
 .main__container {
   margin-left: 150px;
   max-width: 770px;
-  padding-bottom: 50px;
   padding-right: 13px;
   padding-top: 37px;
 }
@@ -111,7 +110,6 @@ nav li a:hover {
 @media (min-width: 700px) {
   .main__container {
     margin-left: 200px;
-    padding-bottom: 100px;
     padding-top: 42px;
     padding-right: 0;
   }
@@ -177,18 +175,26 @@ nav li a:hover {
   width: 100%;
 }
 
-footer {
-  bottom: 288px;
+footer,
+.work__showcase__navigation {
+  bottom: 31px;
   color: rgba(155, 155, 155, 50);
-  position: absolute;
-  left: 100px;
+  position: fixed;
+  left: 150px;
   right: 13px;
+}
+
+footer {
   text-align: right;
 }
 
+.work__showcase__navigation {
+  bottom: 81px;
+}
+
 @media (min-width: 700px) {
-  footer {
-    bottom: 130px;
+  footer,
+  .work__showcase__navigation {
     left: 200px;
     max-width: 770px;
   }
@@ -206,7 +212,7 @@ footer {
 
 @media (min-width: 700px) {
   .work__showcase__header {
-    font-size: 24px;
+    font-size: 33px;
   }
 }
 
@@ -312,6 +318,14 @@ a.work__showcase__navigation--inactive {
   opacity: 0.3;
   outline: none;
 }
+
+@media (min-width: 700px) {
+  .about.main__container {
+    margin-left: 515px;
+    margin-right: 55px;
+  }
+}
+
 
 .about p {
   font-size: 14px;

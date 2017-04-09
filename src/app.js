@@ -12,6 +12,7 @@ class Router {
     this.workEl = Array.prototype.slice.apply(document.querySelectorAll('.work__showcase__container'));
     this.prevNavEl = document.querySelector('.work__showcase__navigation--prev');
     this.nextNavEl = document.querySelector('.work__showcase__navigation--next');
+    this.scrollWrapper = document.querySelector('.scroll_wrapper');
 
     /*
       Actions to show pages
@@ -59,7 +60,7 @@ class Router {
       this.showWork(hash);
     }
 
-    window.scroll(0, 0);
+    this.scrollWrapper.scrollTop = 0;
   }
 
   showAboutPage() {
