@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
 import Toggle from '../Toggle';
+import Navigatable from '../Navigatable';
 
 class Header extends Component {
   constructor() {
@@ -14,23 +15,28 @@ class Header extends Component {
     ];
   }
 
-  renderContactLinks = () => {
-    const contactLinks = this.contactLinks.map((link, i) => (
-      <li key={i}>
-        <Link href={link.href}>
-          <a>{link.text}</a>
-        </Link>
-      </li>
-    ));
-
+  renderContactLinks = (focusLastElement) => {
     return (
-      <ul>
-        {contactLinks}
-      </ul>
+      <Navigatable focusLastElement={focusLastElement} aria-labelledby={this.buttonID}>
+        {
+          this.contactLinks.map((link, i) => (
+            <a
+              role="menuitem"
+              href={link.href}
+              target="_blank"
+              key={i}
+            >
+              {link.text}
+            </a>
+          ))
+        }
+      </Navigatable>
     );
   }
 
   render() {
+    let focusLastElement = false;
+
     return (
       <Toggle>
         {
@@ -40,10 +46,29 @@ class Header extends Component {
               <p>
                 I am a NYC based graphic designer, currently at RBX Active. If you’d like
                 to see more work, collaborate,
-                or say hello, lets <span onClick={handleToggleClick}>stay in touch!</span>
+                or say hello, lets
+                <span
+                  tabIndex={0}
+                  onClick={handleToggleClick}
+                  onKeyDown={(e) => {
+                    switch (e.keyCode) {
+                      case 13: // ENTER
+                      case 32: // SPACE
+                      case 40: // DOWN
+                        handleToggleClick();
+                        break;
+                      case 38: // UP
+                        handleToggleClick();
+                        focusLastElement = true;
+                        break;
+                    }
+                  }}
+                >
+                &nbsp;stay in touch!
+                </span>
               </p>
 
-              {isExpanded && this.renderContactLinks()}
+              {isExpanded && this.renderContactLinks(focusLastElement)}
             </header>
           )
         }

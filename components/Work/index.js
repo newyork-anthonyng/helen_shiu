@@ -1,8 +1,8 @@
 // TODO: Implement ARIA menu control here
 // https://www.w3.org/TR/wai-aria-practices-1.1/#menubutton
 import React, { Component } from 'react';
-import Link from 'next/link';
 import Toggle from '../Toggle';
+import Navigatable from '../Navigatable';
 
 class Work extends Component {
   constructor() {
@@ -21,33 +21,28 @@ class Work extends Component {
     this.linkHrefs = {};
   }
 
-  renderWorkLinks = () => {
-    const workLinks = this.workLinks.map((link, i) => (
-      <li
-        key={i}
-        role="none"
-      >
-        <Link href={link.href}>
-          <a
-            role="menuitem"
-            tabIndex={-1}
-            ref={'link-' + i}
-          >{link.text}</a>
-        </Link>
-      </li>
-    ));
-
+  renderWorkLinks = (focusLastElement) => {
     return (
-      <ul
-        role="menu"
-        aria-labelledby={this.buttonID}
-      >
-        {workLinks}
-      </ul>
+      <Navigatable focusLastElement={focusLastElement} aria-labelledby={this.buttonID}>
+        {
+          this.workLinks.map((link, i) => (
+            <a
+              role="menuitem"
+              href={link.href}
+              target="_blank"
+              key={i}
+            >
+              {link.text}
+            </a>
+          ))
+        }
+      </Navigatable>
     );
   }
 
   render() {
+    let focusLastElement = false;
+
     return (
       <Toggle>
       {
@@ -59,12 +54,12 @@ class Work extends Component {
                 switch (e.keyCode) {
                   case 13: // ENTER
                   case 32: // SPACE
-                  case 38: // UP
                   case 40: // DOWN
-                    console.log(this.refs);
-                    console.log(this.ref);
                     handleToggleClick();
-                    // this.refs['link-0'].focus();
+                    break;
+                  case 38: // UP
+                    handleToggleClick();
+                    focusLastElement = true;
                     break;
                 }
               }}
@@ -77,7 +72,7 @@ class Work extends Component {
               Work
             </h2>
 
-            {this.renderWorkLinks()}
+            {isExpanded && this.renderWorkLinks(focusLastElement)}
           </div>
         )
       }
