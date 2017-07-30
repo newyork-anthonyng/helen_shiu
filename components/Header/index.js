@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
 import Toggle from '../Toggle';
+import HOC from '../HOC';
 import Navigatable from '../Navigatable';
 
 class Header extends Component {
@@ -35,46 +36,28 @@ class Header extends Component {
   }
 
   render() {
-    let focusLastElement = false;
+    const { focusLastElement, onMenuButtonClick, onMenuButtonKeyDown, isExpanded } = this.props;
 
     return (
-      <Toggle>
-        {
-          (isExpanded, handleToggleClick) => (
-            <header>
-              <h1>Helen Shiu</h1>
-              <p>
-                I am a NYC based graphic designer, currently at RBX Active. If you’d like
-                to see more work, collaborate,
-                or say hello, lets
-                <span
-                  tabIndex={0}
-                  onClick={handleToggleClick}
-                  onKeyDown={(e) => {
-                    switch (e.keyCode) {
-                      case 13: // ENTER
-                      case 32: // SPACE
-                      case 40: // DOWN
-                        handleToggleClick();
-                        break;
-                      case 38: // UP
-                        handleToggleClick();
-                        focusLastElement = true;
-                        break;
-                    }
-                  }}
-                >
-                &nbsp;stay in touch!
-                </span>
-              </p>
+      <header>
+        <h1>Helen Shiu</h1>
+        <p>
+          I am a NYC based graphic designer, currently at RBX Active. If you’d like
+          to see more work, collaborate,
+          or say hello, lets
+          <span
+            tabIndex={0}
+            onClick={onMenuButtonClick}
+            onKeyDown={onMenuButtonKeyDown}
+          >
+          &nbsp;stay in touch!
+          </span>
+        </p>
 
-              {isExpanded && this.renderContactLinks(focusLastElement)}
-            </header>
-          )
-        }
-      </Toggle>
+        {isExpanded && this.renderContactLinks(focusLastElement)}
+      </header>
     );
   }
 }
 
-export default Header;
+export default HOC(Header);

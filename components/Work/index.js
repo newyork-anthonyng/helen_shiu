@@ -1,8 +1,6 @@
-// TODO: Implement ARIA menu control here
-// https://www.w3.org/TR/wai-aria-practices-1.1/#menubutton
 import React, { Component } from 'react';
-import Toggle from '../Toggle';
 import Navigatable from '../Navigatable';
+import HOC from '../HOC';
 
 class Work extends Component {
   constructor() {
@@ -41,45 +39,26 @@ class Work extends Component {
   }
 
   render() {
-    let focusLastElement = false;
+    const { focusLastElement, onMenuButtonClick, onMenuButtonKeyDown, isExpanded } = this.props;
 
     return (
-      <Toggle>
-      {
-        (isExpanded, handleToggleClick) => (
-          <div>
-            <h2
-              onClick={handleToggleClick}
-              onKeyDown={(e) => {
-                switch (e.keyCode) {
-                  case 13: // ENTER
-                  case 32: // SPACE
-                  case 40: // DOWN
-                    handleToggleClick();
-                    break;
-                  case 38: // UP
-                    handleToggleClick();
-                    focusLastElement = true;
-                    break;
-                }
-              }}
-              role="button"
-              aria-haspopup="true"
-              aria-controls={this.contentID}
-              aria-expanded={isExpanded ? "true" : null}
-              tabIndex={0}
-            >
-              Work
-            </h2>
+      <div>
+        <h2
+          onClick={onMenuButtonClick}
+          onKeyDown={onMenuButtonKeyDown}
+          role="button"
+          aria-haspopup="true"
+          aria-controls={this.contentID}
+          aria-expanded={isExpanded ? "true" : null}
+          tabIndex={0}
+        >
+          Work
+        </h2>
 
-            {isExpanded && this.renderWorkLinks(focusLastElement)}
-          </div>
-        )
-      }
-
-      </Toggle>
+        {isExpanded && this.renderWorkLinks(focusLastElement)}
+      </div>
     );
   }
 }
 
-export default Work;
+export default HOC(Work);
