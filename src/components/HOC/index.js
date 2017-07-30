@@ -27,12 +27,15 @@ const HOC = (WrappedComponent) => {
     }
 
     handleToggleClick = () => {
+      console.log('toggling');
       this.setState(prevState => ({
         isExpanded: !prevState.isExpanded,
       }))
     }
 
     closeExpanded = () => {
+      return;
+      console.log('closing');
       this.setState({ isExpanded: false });
     }
 

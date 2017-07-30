@@ -36,6 +36,10 @@ const Index = () => (
         text-decoration: ${mainColor} line-through;
       }
 
+      [role="button"] {
+        cursor: pointer;
+      }
+
       .root {
         align-items: center;
         display: flex;
@@ -45,7 +49,6 @@ const Index = () => (
       }
 
       .container {
-        border: 1px solid white;
         max-width: 650px;
       }
     `}</style>

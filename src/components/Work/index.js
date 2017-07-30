@@ -1,29 +1,23 @@
 import React, { Component } from 'react';
 import Navigatable from '../Navigatable';
 import HOC from '../HOC';
+import { workLinks } from '../../utility/info';
+import { breakPoint, mainColor } from '../../utility/styles';
 
 class Work extends Component {
   constructor() {
     super();
-
-    this.workLinks = [
-      { text: 'RBX Active', href: 'rbx-active' },
-      { text: 'Wanderer', href: 'wanderer' },
-      { text: 'Swim Tribe', href: 'swim-tribe' },
-      { text: 'Nest', href: 'nest' },
-      { text: 'The Complete Tales of Winnie the Pooh', href: 'winnie-the-pooh' },
-    ];
 
     this.contentID = 'contentId';
     this.buttonID = 'buttonId';
     this.linkHrefs = {};
   }
 
-  renderWorkLinks = (focusLastElement) => {
+  renderWorkLinks = (isExpanded, focusLastElement) => {
     return (
-      <Navigatable focusLastElement={focusLastElement} aria-labelledby={this.buttonID}>
+      <Navigatable shouldFocus={isExpanded} focusLastElement={focusLastElement} aria-labelledby={this.buttonID}>
         {
-          this.workLinks.map((link, i) => (
+          workLinks.map((link, i) => (
             <a
               role="menuitem"
               href={link.href}
@@ -43,6 +37,30 @@ class Work extends Component {
 
     return (
       <div>
+        <style jsx>{`
+          h2 {
+            color: ${mainColor}
+            display: inline-block;
+            font-size: 26px;
+            font-weight: 400;
+            margin: 65px 0 0 0;
+          }
+
+          .bar {
+            margin-bottom: 60px;
+          }
+
+          @media (min-width: ${breakPoint}px) {
+            h2 {
+              font-size: 37px;
+              margin-top: 82px;
+            }
+
+            .bar {
+              margin-bottom: 120px;
+            }
+          }
+        `}</style>
         <h2
           onClick={onMenuButtonClick}
           onKeyDown={onMenuButtonKeyDown}
@@ -56,7 +74,9 @@ class Work extends Component {
           Work
         </h2>
 
-        {isExpanded && this.renderWorkLinks(focusLastElement)}
+        <div style={{ visibility: isExpanded ? 'visible' : 'hidden' }} className="bar">
+          {this.renderWorkLinks(isExpanded, focusLastElement)}
+        </div>
       </div>
     );
   }

@@ -11,11 +11,13 @@ class Navigatable extends Component {
     this.uuid = Math.random();
   }
 
-  componentDidMount() {
-    if (this.props.focusLastElement) {
-      this.refs[`link-${Children.count(this.props.children) - 1}-${this.uuid}`].focus();
-    } else {
-      this.refs[`link-0-${this.uuid}`].focus();
+  componentDidUpdate(prevProps) {
+    if (!prevProps.shouldFocus && this.props.shouldFocus) {
+      if (this.props.focusLastElement) {
+        this.refs[`link-${Children.count(this.props.children) - 1}-${this.uuid}`].focus();
+      } else {
+        this.refs[`link-0-${this.uuid}`].focus();
+      }
     }
   }
 
@@ -51,7 +53,7 @@ class Navigatable extends Component {
   }
 
   render() {
-    const { focusLastElement, ...props } = this.props;
+    const { focusLastElement, shouldFocus, ...props } = this.props;
 
     return (
       <ul {...props}>

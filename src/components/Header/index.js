@@ -3,24 +3,21 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 import HOC from '../HOC';
 import Navigatable from '../Navigatable';
-import { breakpoint, mainColor } from '../../utility/styles';
+import { contactLinks } from '../../utility/info';
+import { breakPoint, mainColor } from '../../utility/styles';
 
 class Header extends Component {
   constructor() {
     super();
 
-    this.contactLinks = [
-      { text: 'Email', href: 'mailto:helen.shiu@outlook.com' },
-      { text: 'Resume', href: '#resume' },
-      { text: 'LinkedIn', href: 'https://www.linkedin.com/in/helen-shiu-62384027' },
-    ];
+    this.buttonID = 'buttonID';
+    this.contentID = 'contentID';
   }
-
-  renderContactLinks = (focusLastElement) => {
+  renderContactLinks = (isExpanded, focusLastElement) => {
     return (
-      <Navigatable focusLastElement={focusLastElement} aria-labelledby={this.buttonID}>
+      <Navigatable shouldFocus={isExpanded} focusLastElement={focusLastElement} aria-labelledby={this.buttonID}>
         {
-          this.contactLinks.map((link, i) => (
+          contactLinks.map((link, i) => (
             <a
               role="menuitem"
               href={link.href}
@@ -59,7 +56,7 @@ class Header extends Component {
             color: ${mainColor};
           }
 
-          @media (min-width: ${breakpoint}px) {
+          @media (min-width: ${breakPoint}px) {
             h1 {
               font-size: 98px;
             }
@@ -69,8 +66,35 @@ class Header extends Component {
               line-height: 30px;
             }
           }
-
         `}</style>
+        <style jsx global> {`
+          .foo li {
+            font-size: 14px;
+          }
+
+          @media (min-width: ${breakPoint}px) {
+            .foo ul {
+              margin: 20px auto 0;
+              max-width: 420px;
+            }
+
+            .foo li {
+              border-left: 1px solid white;
+              display: inline-block;
+              font-size: 20px;
+              padding: 0 20px;
+            }
+
+            .foo li:first-of-type {
+              border-left: none;
+            }
+
+            .foo li:last-of-type {
+              padding-right: 0;
+            }
+          }
+        `}</style>
+
         <h1>Helen Shiu</h1>
         <p>
           I am a NYC based graphic designer, currently at RBX Active. If you’d like
@@ -81,12 +105,18 @@ class Header extends Component {
             onClick={onMenuButtonClick}
             onKeyDown={onMenuButtonKeyDown}
             onFocus={onMenuButtonFocus}
+            role="button"
+            aria-haspopup="true"
+            aria-controls={this.contentID}
+            aria-expanded={isExpanded ? "true" : null}
           >
           &nbsp;stay in touch
           </span>!
         </p>
 
-        {isExpanded && this.renderContactLinks(focusLastElement)}
+        <div style={{ visibility: isExpanded ? 'visible' : 'hidden' }} className="foo">
+          {this.renderContactLinks(isExpanded, focusLastElement)}
+        </div>
       </header>
     );
   }
