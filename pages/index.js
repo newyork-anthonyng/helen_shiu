@@ -10,6 +10,7 @@ const Index = () => (
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta charSet="utf-8" />
       <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400" rel="stylesheet" />
+      <title>Helen Shiu</title>
     </Head>
     <style jsx global>{`
       html, body {
@@ -18,8 +19,13 @@ const Index = () => (
         font-family: Montserrat, sans-serif;
         height: 100%;
         margin: 0;
+        min-width: 300px;
         padding: 0;
         text-align: center;
+      }
+
+      body {
+        padding: 0 30px;
       }
 
       ul {

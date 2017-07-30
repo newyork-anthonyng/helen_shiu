@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Navigatable from '../Navigatable';
 import HOC from '../HOC';
 import { workLinks } from '../../utility/info';
-import { breakPoint, mainColor } from '../../utility/styles';
+import { breakPoint, mainColor, letterSpacing } from '../../utility/styles';
 
 class Work extends Component {
   constructor() {
@@ -44,20 +44,36 @@ class Work extends Component {
             font-size: 26px;
             font-weight: 400;
             margin: 65px 0 0 0;
-          }
-
-          .bar {
-            margin-bottom: 60px;
+            text-transform: uppercase;
           }
 
           @media (min-width: ${breakPoint}px) {
             h2 {
               font-size: 37px;
-              margin-top: 82px;
+              margin-bottom: 12px;
+              margin-top: 50px;
             }
 
             .bar {
-              margin-bottom: 120px;
+              margin-bottom: 70px;
+            }
+          }
+        `}</style>
+        <style jsx global>{`
+          .bar {
+            margin-bottom: 60px;
+          }
+
+          .bar li {
+            font-size: 14px;
+            font-weight: 300;
+            letter-spacing: ${letterSpacing}px;
+            margin-bottom: 18px;
+          }
+
+          @media (min-width: ${breakPoint}px) {
+            .bar li {
+              font-size: 20px;
             }
           }
         `}</style>

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import HOC from '../HOC';
 import Navigatable from '../Navigatable';
 import { contactLinks } from '../../utility/info';
-import { breakPoint, mainColor } from '../../utility/styles';
+import { breakPoint, mainColor, letterSpacing } from '../../utility/styles';
 
 class Header extends Component {
   constructor() {
@@ -48,8 +48,9 @@ class Header extends Component {
           p {
             font-size: 14px;
             font-weight: 300;
-            line-height: 21px;
-            margin: 0;
+            letter-spacing: ${letterSpacing}px;
+            line-height: 30px;
+            margin: 8px 0 0 0;
           }
 
           span {
@@ -63,13 +64,15 @@ class Header extends Component {
 
             p {
               font-size: 20px;
-              line-height: 30px;
+              line-height: 40px;
             }
           }
         `}</style>
         <style jsx global> {`
           .foo li {
             font-size: 14px;
+            letter-spacing: ${letterSpacing}px;
+            margin-bottom: 18px;
           }
 
           @media (min-width: ${breakPoint}px) {
