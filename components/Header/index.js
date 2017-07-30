@@ -1,6 +1,7 @@
 // TODO: Need link to resume
 import React, { Component } from 'react';
 import Link from 'next/link';
+import Toggle from '../Toggle';
 
 class Header extends Component {
   constructor() {
@@ -11,15 +12,6 @@ class Header extends Component {
       { text: 'Resume', href: '#resume' },
       { text: 'LinkedIn', href: 'https://www.linkedin.com/in/helen-shiu-62384027' },
     ];
-    this.state = {
-      isExpanded: false,
-    };
-  }
-
-  toggleContactInfo = () => {
-    this.setState(prevState => ({
-      isExpanded: !prevState.isExpanded,
-    }));
   }
 
   renderContactLinks = () => {
@@ -40,16 +32,22 @@ class Header extends Component {
 
   render() {
     return (
-      <header>
-        <h1>Helen Shiu</h1>
-        <p>
-          I am a NYC based graphic designer, currently at RBX Active. If you’d like
-          to see more work, collaborate,
-          or say hello, lets <span onClick={this.toggleContactInfo}>stay in touch!</span>
-        </p>
+      <Toggle>
+        {
+          (isExpanded, handleToggleClick) => (
+            <header>
+              <h1>Helen Shiu</h1>
+              <p>
+                I am a NYC based graphic designer, currently at RBX Active. If you’d like
+                to see more work, collaborate,
+                or say hello, lets <span onClick={handleToggleClick}>stay in touch!</span>
+              </p>
 
-        {this.state.isExpanded && this.renderContactLinks()}
-      </header>
+              {isExpanded && this.renderContactLinks()}
+            </header>
+          )
+        }
+      </Toggle>
     );
   }
 }
