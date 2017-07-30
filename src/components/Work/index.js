@@ -39,13 +39,14 @@ class Work extends Component {
   }
 
   render() {
-    const { focusLastElement, onMenuButtonClick, onMenuButtonKeyDown, isExpanded } = this.props;
+    const { focusLastElement, onMenuButtonClick, onMenuButtonKeyDown, isExpanded, onMenuButtonFocus } = this.props;
 
     return (
       <div>
         <h2
           onClick={onMenuButtonClick}
           onKeyDown={onMenuButtonKeyDown}
+          onFocus={onMenuButtonFocus}
           role="button"
           aria-haspopup="true"
           aria-controls={this.contentID}

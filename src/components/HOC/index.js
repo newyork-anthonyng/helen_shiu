@@ -32,12 +32,17 @@ const HOC = (WrappedComponent) => {
       }))
     }
 
+    closeExpanded = () => {
+      this.setState({ isExpanded: false });
+    }
+
     render() {
       return (
         <WrappedComponent
           focusLastElement={this.focusLastElement}
           onMenuButtonClick={this.handleToggleClick}
           onMenuButtonKeyDown={this.handleKeyDown}
+          onMenuButtonFocus={this.closeExpanded}
           isExpanded={this.state.isExpanded}
         />
       );
