@@ -19,16 +19,27 @@
     "gulp-clean-css": "^3.0.2",
     "gulp-htmlmin": "^3.0.0",
     "gulp-uglify": "^2.1.0",
+    "husky": "^0.14.3",
     "jest": "^20.0.4",
+    "lint-staged": "^4.0.2",
+    "prettier": "^1.5.3",
     "react-test-renderer": "^15.6.1"
   },
   "scripts": {
-    "dev": "next",
+    "dev": "node server.js",
     "start": "node server.js",
     "minify-html": "./node_modules/.bin/gulp minify-html",
     "minify-css": "./node_modules/.bin/gulp minify-css",
     "minify-js": "./node_modules/.bin/gulp minify-js",
-    "build": "npm run minify-html && npm run minify-css && npm run minify-js"
+    "build": "npm run minify-html && npm run minify-css && npm run minify-js",
+    "prettier": "prettier --write",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run prettier",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
