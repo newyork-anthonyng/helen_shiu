@@ -3,12 +3,38 @@ const app = express();
 const path = require('path');
 const compression = require('compression');
 
+app.set('view engine', 'ejs');
+app.set('views', 'dist');
+
 app.use(compression());
 app.use(express.static('dist'));
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '/dist/index.html'));
-});
+if (process.env.NODE_ENV !== 'production') {
+  const webpack = require('webpack');
+  const webpackConfig = require('./webpack.dev.config.js');
+  const compiler = webpack(webpackConfig);
+
+  const devMiddleware = require('webpack-dev-middleware');
+  app.use(devMiddleware(compiler, {
+    noInfo: true,
+    publicPath: webpackConfig.output.publicPath,
+  }));
+
+  const hotMiddleware = require('webpack-hot-middleware');
+  app.use(hotMiddleware(compiler, {
+    log: console.log,
+    path: '/__webpack_hmr',
+    heartbeat: 10 * 1000,
+  }));
+
+  app.use((req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+  });
+} else {
+  const serverRender = require('./dist/serverRender').default;
+
+  app.use(serverRender);
+}
 
 const server = app.listen(process.env.PORT || 3000, () => {
   const port = server.address().port;
