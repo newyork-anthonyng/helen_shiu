@@ -42,7 +42,7 @@ class App extends Component {
 
   renderFooter = () => {
     return (
-      <footer>
+      <footer className={styles.footer}>
         © 2017 Helen Shiu. All rights reserved.
       </footer>
     );
@@ -52,9 +52,7 @@ class App extends Component {
     return (
       <div>
         {this.renderHeading()}
-
         {this.renderWork()}
-
         {this.renderFooter()}
       </div>
     );
