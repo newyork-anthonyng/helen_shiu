@@ -5,7 +5,11 @@ import Menu from './';
 import MenuDisplay from '../MenuDisplay';
 import MenuButton from '../MenuButton';
 
-it('should return correctly', () => {
+jest.mock('../../utilities/uuid', () => {
+  return () => 'mockUuid';
+});
+
+it('should render correctly', () => {
   const wrapper = mount(
     <Menu>
       <MenuButton><a>Toggle Menu</a></MenuButton>
@@ -123,6 +127,69 @@ it('should open Menu Display and focus on first element when pressing Down arrow
 
   expect(wrapper.find(MenuDisplay).length).toEqual(1);
   expect(document.activeElement).toEqual(wrapper.find('h1').get(0));
+});
+
+describe('Pressing arrow key multiple times', () => {
+  it('should not close Menu Display when pressing Up arrow on Menu Button multiple times', () => {
+    const wrapper = mount(
+      <Menu>
+        <MenuButton><a>Toggle Menu</a></MenuButton>
+        <MenuDisplay>
+          <h1>First</h1>
+          <h1>Second</h1>
+          <h1>Third</h1>
+        </MenuDisplay>
+      </Menu>
+    );
+
+    const menuButton = wrapper.find(MenuButton);
+    menuButton.simulate('keydown', { keyCode: 38 });
+    expect(wrapper.find(MenuDisplay).length).toEqual(1);
+
+    menuButton.simulate('keydown', { keyCode: 38 });
+    expect(wrapper.find(MenuDisplay).length).toEqual(1);
+  });
+
+  it('should not close Menu Display when pressing Down arrow on Menu Button multiple times', () => {
+    const wrapper = mount(
+      <Menu>
+        <MenuButton><a>Toggle Menu</a></MenuButton>
+        <MenuDisplay>
+          <h1>First</h1>
+          <h1>Second</h1>
+          <h1>Third</h1>
+        </MenuDisplay>
+      </Menu>
+    );
+
+    const menuButton = wrapper.find(MenuButton);
+    menuButton.simulate('keydown', { keyCode: 40 });
+    expect(wrapper.find(MenuDisplay).length).toEqual(1);
+
+    menuButton.simulate('keydown', { keyCode: 40 });
+    expect(wrapper.find(MenuDisplay).length).toEqual(1);
+  });
+
+  it('should focus on Menu Display correctly', () => {
+    const wrapper = mount(
+      <Menu>
+        <MenuButton><a>Toggle Menu</a></MenuButton>
+        <MenuDisplay>
+          <h1>First</h1>
+          <h1>Second</h1>
+          <h1>Third</h1>
+        </MenuDisplay>
+      </Menu>
+    );
+
+    const menuButton = wrapper.find(MenuButton);
+    menuButton.simulate('keydown', { keyCode: 40 });
+    expect(document.activeElement).toEqual(wrapper.find('h1').get(0));
+
+    menuButton.simulate('keydown', { keyCode: 38 });
+    expect(wrapper.find(MenuDisplay).length).toEqual(1);
+    expect(document.activeElement).toEqual(wrapper.find('h1').get(2));
+  });
 });
 
 it('should focus on correct element when clicking on Menu Button, after previously pressing Up arrow', () => {

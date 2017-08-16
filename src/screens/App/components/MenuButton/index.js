@@ -2,11 +2,19 @@ import React, { Children, cloneElement } from 'react';
 import T from 'prop-types';
 import noop from '../../utilities/noop';
 
-const MenuButton = ({ children, onClick, onKeyDown }) => {
+const MenuButton = ({
+  children,
+  onClick,
+  onKeyDown,
+  ...otherProps
+}) => {
   return cloneElement(Children.only(children), {
     onClick,
     onKeyDown,
     tabIndex: 0,
+    role: 'button',
+    'aria-haspopup': 'true',
+    ...otherProps,
   });
 };
 

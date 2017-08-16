@@ -3,12 +3,20 @@ import T from 'prop-types';
 
 class MenuDisplay extends Component {
   componentDidMount() {
+    this.focus();
+  }
+
+  focus = () => {
     let nextChildIndex = 0;
     if (this.props.shouldFocusOnLastElement) {
       nextChildIndex = Children.count(this.props.children) - 1;
     }
 
-    this.refs[`child-${nextChildIndex}`].focus();
+    this.focusOnElement(nextChildIndex);
+  }
+
+  focusOnElement = (index) => {
+    this.refs[`child-${index}`].focus();
   }
 
   handleKeyDown = (index) => {
@@ -43,6 +51,7 @@ class MenuDisplay extends Component {
         ref: `child-${index}`,
         tabIndex: -1,
         onKeyDown: this.handleKeyDown(index),
+        role: 'menuitem',
       });
     });
   }

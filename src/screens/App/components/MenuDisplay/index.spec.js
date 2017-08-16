@@ -114,3 +114,20 @@ describe('When pressing up arrow', () => {
     expect(document.activeElement).toEqual(lastElement);
   });
 });
+
+it('should focus correctly when calling MenuDisplay.focus', () => {
+  const wrapper = mount(
+    <MenuDisplay {...defaultProps}>
+      <h1>First</h1>
+      <h1>Second</h1>
+      <h1>Third</h1>
+    </MenuDisplay>
+  );
+  const firstHeader = wrapper.find('h1').get(0);
+  firstHeader.focus = jest.fn();
+
+  const menuDisplay = wrapper.instance();
+  menuDisplay.focus();
+
+  expect(firstHeader.focus).toHaveBeenCalledTimes(1);
+});

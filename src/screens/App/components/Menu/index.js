@@ -1,10 +1,13 @@
 import React, { Component, Children, cloneElement } from 'react';
 import MenuDisplay from '../MenuDisplay';
 import MenuButton from '../MenuButton';
+import uuid from '../../utilities/uuid';
 
 class Menu extends Component {
   constructor() {
     super();
+
+    this.UUID = uuid();
 
     this.state = {
       isMenuVisible: false,
@@ -20,34 +23,49 @@ class Menu extends Component {
   }
 
   handleMenuButtonKeyDown = (e) => {
-    // 38 => UP
-    // 40 => DOWN
-    // 13 => ENTER
-    // 32 => SPACE_BAR
-    if (!/(38|40|32|13)/.test(e.keyCode)) return;
+    e.persist();
 
-    const shouldFocusOnLastElement = e.keyCode === 38;
-
-    this.setState(prevState => ({
-      isMenuVisible: !prevState.isMenuVisible,
-      shouldFocusOnLastElement,
-    }));
+    if (e.keyCode === 38 || e.keyCode === 40) {
+      // pressing UP or DOWN arrows
+      this.setState(prevState => ({
+        isMenuVisible: true,
+        shouldFocusOnLastElement: e.keyCode === 38,
+      }), () => {
+        if (this.refs.MenuDisplay) this.refs.MenuDisplay.focus();
+      });
+    } else if (e.keyCode === 13 || e.keyCode === 32) {
+      // pressing ENTER or SPACE_BAR
+      this.setState(prevState => ({
+        isMenuVisible: !prevState.isMenuVisible,
+      }));
+    }
   }
 
   renderChildren = () => {
     return Children.map(this.props.children, child => {
       if (child.type === MenuDisplay) {
         if (this.state.isMenuVisible) {
-          return cloneElement(child, {
+          const menuDisplayProps = {
             shouldFocusOnLastElement: this.state.shouldFocusOnLastElement,
-          });
+            ref: 'MenuDisplay',
+            'aria-labelledby': `${this.UUID}-button`,
+            id: `${this.UUID}-display`,
+          };
+          return cloneElement(child, menuDisplayProps);
         }
         return null;
       } else if (child.type === MenuButton) {
-        return cloneElement(child, {
+        const menuButtonProps = {
           onClick: this.handleMenuButtonClick,
           onKeyDown: this.handleMenuButtonKeyDown,
-        });
+          'aria-controls': `${this.UUID}-display`,
+          id: `${this.UUID}-button`,
+        };
+        if (this.state.isMenuVisible) {
+          menuButtonProps['aria-expanded'] = 'true';
+        }
+
+        return cloneElement(child, menuButtonProps);
       }
       return child;
     });

@@ -1,15 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should return correctly 1`] = `
+exports[`should render correctly 1`] = `
 <Menu>
   <div>
     <MenuButton
+      aria-controls="mockUuid-display"
+      id="mockUuid-button"
       onClick={[Function]}
       onKeyDown={[Function]}
     >
       <a
+        aria-controls="mockUuid-display"
+        aria-haspopup="true"
+        id="mockUuid-button"
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="button"
         tabIndex={0}
       >
         Toggle Menu

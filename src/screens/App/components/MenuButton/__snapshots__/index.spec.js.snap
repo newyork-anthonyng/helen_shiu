@@ -2,8 +2,10 @@
 
 exports[`should render correctly 1`] = `
 <h1
+  aria-haspopup="true"
   onClick={[Function]}
   onKeyDown={[Function]}
+  role="button"
   tabIndex={0}
 >
   Open Menu
