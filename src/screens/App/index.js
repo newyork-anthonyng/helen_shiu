@@ -5,7 +5,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      count: 0,
+      count: 1,
     };
   }
 

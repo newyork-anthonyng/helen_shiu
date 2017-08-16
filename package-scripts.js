@@ -15,5 +15,13 @@ module.exports = {
         description: 'Run webpack in watch mode',
       },
     },
-  }
+    test: {
+      default: 'jest',
+
+      watch: {
+        script: 'jest --watch',
+        description: 'Run Jest in watch mode',
+      },
+    },
+  },
 };

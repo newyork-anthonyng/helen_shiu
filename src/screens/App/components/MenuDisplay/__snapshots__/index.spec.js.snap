@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render children correctly 1`] = `
+<div>
+  <h1
+    onKeyDown={[Function]}
+    tabIndex={-1}
+  >
+    First
+  </h1>
+  <h1
+    onKeyDown={[Function]}
+    tabIndex={-1}
+  >
+    Second
+  </h1>
+  <h1
+    onKeyDown={[Function]}
+    tabIndex={-1}
+  >
+    Third
+  </h1>
+</div>
+`;

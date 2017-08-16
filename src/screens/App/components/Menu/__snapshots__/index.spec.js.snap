@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return correctly 1`] = `
+<Menu>
+  <div>
+    <MenuButton
+      onClick={[Function]}
+      onKeyDown={[Function]}
+    >
+      <a
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={0}
+      >
+        Toggle Menu
+      </a>
+    </MenuButton>
+  </div>
+</Menu>
+`;
