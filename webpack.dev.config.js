@@ -22,6 +22,7 @@ module.exports = {
             loader: 'css-loader',
             options: { modules: true },
           },
+          'sass-loader',
         ],
       },
     ],

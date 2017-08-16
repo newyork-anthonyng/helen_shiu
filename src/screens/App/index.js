@@ -13,9 +13,9 @@ class App extends Component {
         <Menu>
           I am a NYC based graphic designer, currently at RBX Active.
           If you'd like to see more work, collaborate, or say hello,
-          <MenuButton><span>let's stay in touch!</span></MenuButton>
+          <MenuButton><span className={styles.menuButton}>let's stay in touch!</span></MenuButton>
 
-          <MenuDisplay>
+          <MenuDisplay className={styles.headingMenuDisplay}>
             <a href="#">Email</a>
             <a href="#">Resume</a>
             <a href="#">LinkedIn</a>
@@ -28,8 +28,8 @@ class App extends Component {
   renderWork = () => {
     return (
       <Menu>
-        <MenuButton><h2>Work</h2></MenuButton>
-        <MenuDisplay>
+        <MenuButton><h2 className={styles.menuButton}>Work</h2></MenuButton>
+        <MenuDisplay className={styles.workMenuDisplay}>
           <a href="#">RBX Active</a>
           <a href="#">Wanderer</a>
           <a href="#">Swim Tribe</a>
@@ -40,12 +40,22 @@ class App extends Component {
     );
   }
 
+  renderFooter = () => {
+    return (
+      <footer>
+        © 2017 Helen Shiu. All rights reserved.
+      </footer>
+    );
+  }
+
   render() {
     return (
       <div>
         {this.renderHeading()}
 
         {this.renderWork()}
+
+        {this.renderFooter()}
       </div>
     );
   }

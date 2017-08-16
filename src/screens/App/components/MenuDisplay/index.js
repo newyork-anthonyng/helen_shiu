@@ -47,20 +47,26 @@ class MenuDisplay extends Component {
 
   renderChildren = () => {
     return Children.map(this.props.children, (child, index) => {
-      return React.cloneElement(child, {
-        ref: `child-${index}`,
-        tabIndex: -1,
-        onKeyDown: this.handleKeyDown(index),
-        role: 'menuitem',
-      });
-    });
+      return (
+        <li>
+        {React.cloneElement(child, {
+          ref: `child-${index}`,
+          tabIndex: -1,
+          onKeyDown: this.handleKeyDown(index),
+          role: 'menuitem',
+        })}
+        </li>
+      );
+    })
   }
 
   render() {
+    const { shouldFocusOnLastElement, ...otherProps } = this.props;
+
     return (
-      <div>
+      <ul {...otherProps}>
         {this.renderChildren()}
-      </div>
+      </ul>
     );
   }
 }

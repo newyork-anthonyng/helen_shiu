@@ -22,10 +22,13 @@ const clientConfig = {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: {
-            loader: 'css-loader',
-            options: { modules: true },
-          },
+          use: [
+            {
+              loader: 'css-loader',
+              options: { modules: true },
+            },
+            'sass-loader',
+          ],
         }),
       }
     ],

@@ -1,3 +1,41 @@
-.header {
-  color: blue;
+$mainColor: #FFEB94;
+$textColor: white;
+$desktop: 500px;
+
+body {
+  background-color: black;
+  color: $textColor;
+}
+
+h1, h2 {
+  color: $mainColor;
+  text-align: center;
+}
+
+a, a:visited {
+  color: $textColor;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menuButton {
+  color: $mainColor;
+  cursor: pointer;
+}
+
+.headingMenuDisplay {
+  text-align: center;
+
+  @media (min-width: $desktop) {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.workMenuDisplay {
+  text-align: center;
 }
