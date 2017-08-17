@@ -39,11 +39,11 @@ describe('It should toggle Menu Display', () => {
 
     const menuButton = wrapper.find(MenuButton);
     menuButton.simulate('click');
-    expect(wrapper.find(MenuDisplay).length).toEqual(1);
+    expect(wrapper.find(MenuDisplay).find('ul').at(0).props().style.visibility).toEqual('');
     expect(document.activeElement).toEqual(wrapper.find('h1').get(0));
 
     menuButton.simulate('click');
-    expect(wrapper.find(MenuDisplay).length).toEqual(0);
+    expect(wrapper.find(MenuDisplay).find('ul').at(0).props().style.visibility).toEqual('hidden');
   });
 
   it('when pressing Space Bar', () => {
@@ -61,11 +61,11 @@ describe('It should toggle Menu Display', () => {
 
     const menuButton = wrapper.find(MenuButton);
     menuButton.simulate('keydown', { keyCode: SPACE_BAR });
-    expect(wrapper.find(MenuDisplay).length).toEqual(1);
+    expect(wrapper.find(MenuDisplay).find('ul').at(0).props().style.visibility).toEqual('');
     expect(document.activeElement).toEqual(wrapper.find('h1').get(0));
 
     menuButton.simulate('keydown', { keyCode: SPACE_BAR });
-    expect(wrapper.find(MenuDisplay).length).toEqual(0);
+    expect(wrapper.find(MenuDisplay).find('ul').at(0).props().style.visibility).toEqual('hidden');
   });
 
   it('when pressing Enter', () => {
@@ -83,11 +83,11 @@ describe('It should toggle Menu Display', () => {
 
     const menuButton = wrapper.find(MenuButton);
     menuButton.simulate('keydown', { keyCode: ENTER_KEY });
-    expect(wrapper.find(MenuDisplay).length).toEqual(1);
+    expect(wrapper.find(MenuDisplay).find('ul').at(0).props().style.visibility).toEqual('');
     expect(document.activeElement).toEqual(wrapper.find('h1').get(0));
 
     menuButton.simulate('keydown', { keyCode: ENTER_KEY });
-    expect(wrapper.find(MenuDisplay).length).toEqual(0);
+    expect(wrapper.find(MenuDisplay).find('ul').at(0).props().style.visibility).toEqual('hidden');
   });
 });
 

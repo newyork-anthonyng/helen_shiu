@@ -2,8 +2,10 @@ import React, { Component, Children } from 'react';
 import T from 'prop-types';
 
 class MenuDisplay extends Component {
-  componentDidMount() {
-    this.focus();
+  componentDidUpdate(prevProps) {
+    if (prevProps.visible !== this.props.visible && this.props.visible) {
+      this.focus();
+    }
   }
 
   focus = () => {
@@ -26,12 +28,14 @@ class MenuDisplay extends Component {
 
       switch (e.keyCode) {
         case 38: // UP
+          e.preventDefault();
           nextFocusableChildIndex = index - 1;
           if (nextFocusableChildIndex < 0) {
             nextFocusableChildIndex = childrenCount - 1;
           }
           break;
         case 40: // DOWN
+          e.preventDefault();
           nextFocusableChildIndex = index + 1;
           if (nextFocusableChildIndex >= childrenCount) {
             nextFocusableChildIndex = 0;
@@ -61,10 +65,13 @@ class MenuDisplay extends Component {
   }
 
   render() {
-    const { shouldFocusOnLastElement, ...otherProps } = this.props;
+    const { shouldFocusOnLastElement, visible, ...otherProps } = this.props;
+    const style = {
+      visibility: visible ? '' : 'hidden',
+    };
 
     return (
-      <ul {...otherProps}>
+      <ul {...otherProps} style={style}>
         {this.renderChildren()}
       </ul>
     );
@@ -73,10 +80,12 @@ class MenuDisplay extends Component {
 
 MenuDisplay.defaultProps = {
   shouldFocusOnLastElement: false,
+  visible: false,
 };
 
 MenuDisplay.propTypes = {
   shouldFocusOnLastElement: T.bool,
+  visible: T.bool,
 };
 
 export default MenuDisplay;

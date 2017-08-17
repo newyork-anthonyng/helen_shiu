@@ -7,13 +7,15 @@ import styles from './styles.css';
 class App extends Component {
   renderHeading = () => {
     return (
-      <div>
+      <header>
         <h1>Helen Shiu</h1>
 
         <Menu>
-          I am a NYC based graphic designer, currently at RBX Active.
-          If you'd like to see more work, collaborate, or say hello,
-          <MenuButton><span className={styles.menuButton}>let's stay in touch!</span></MenuButton>
+          <p className={styles.inlineText}>
+            I am a NYC based graphic designer, currently at RBX Active.
+            If you'd like to see more work, collaborate, or say hello,
+          </p>
+          <MenuButton><span className={styles.menuButton}>&nbsp;let's stay in touch!</span></MenuButton>
 
           <MenuDisplay className={styles.headingMenuDisplay}>
             <a href="#">Email</a>
@@ -21,7 +23,7 @@ class App extends Component {
             <a href="#">LinkedIn</a>
           </MenuDisplay>
         </Menu>
-      </div>
+      </header>
     );
   }
 

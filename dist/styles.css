@@ -1,5 +1,34 @@
-._1SGT_KShie7I63Gq9Q9ATJ {
-  color: blue;
-}
+body {
+  background-color: black;
+  color: white; }
+
+h1, h2 {
+  color: #FFEB94;
+  text-align: center; }
+
+a, a:visited {
+  color: white;
+  text-decoration: none; }
+
+ul {
+  list-style: none;
+  padding: 0; }
+
+._2W176bYCpxLEcP1y0DQOVa {
+  color: #FFEB94;
+  cursor: pointer; }
+
+._1rXCUczYcfB5bYkItCetpT {
+  text-align: center; }
+  @media (min-width: 500px) {
+    ._1rXCUczYcfB5bYkItCetpT {
+      display: flex;
+      justify-content: center; } }
+
+._3L92V8O02-k0McIrwcK4Ct {
+  text-align: center; }
+
+._2-SuT1P5CPHMemIqEn4gGt {
+  text-align: center; }
 
 /*# sourceMappingURL=styles.css.map*/

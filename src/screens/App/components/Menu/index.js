@@ -26,6 +26,8 @@ class Menu extends Component {
     e.persist();
 
     if (e.keyCode === 38 || e.keyCode === 40) {
+      e.preventDefault();
+
       // pressing UP or DOWN arrows
       this.setState(prevState => ({
         isMenuVisible: true,
@@ -34,6 +36,8 @@ class Menu extends Component {
         if (this.refs.MenuDisplay) this.refs.MenuDisplay.focus();
       });
     } else if (e.keyCode === 13 || e.keyCode === 32) {
+      e.preventDefault();
+
       // pressing ENTER or SPACE_BAR
       this.setState(prevState => ({
         isMenuVisible: !prevState.isMenuVisible,
@@ -44,16 +48,24 @@ class Menu extends Component {
   renderChildren = () => {
     return Children.map(this.props.children, child => {
       if (child.type === MenuDisplay) {
-        if (this.state.isMenuVisible) {
           const menuDisplayProps = {
             shouldFocusOnLastElement: this.state.shouldFocusOnLastElement,
             ref: 'MenuDisplay',
             'aria-labelledby': `${this.UUID}-button`,
             id: `${this.UUID}-display`,
+            visible: this.state.isMenuVisible,
           };
           return cloneElement(child, menuDisplayProps);
-        }
-        return null;
+        // if (this.state.isMenuVisible) {
+        //   const menuDisplayProps = {
+        //     shouldFocusOnLastElement: this.state.shouldFocusOnLastElement,
+        //     ref: 'MenuDisplay',
+        //     'aria-labelledby': `${this.UUID}-button`,
+        //     id: `${this.UUID}-display`,
+        //   };
+        //   return cloneElement(child, menuDisplayProps);
+        // }
+        // return null;
       } else if (child.type === MenuButton) {
         const menuButtonProps = {
           onClick: this.handleMenuButtonClick,
