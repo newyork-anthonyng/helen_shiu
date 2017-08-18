@@ -2,14 +2,20 @@ const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
-  entry: [
-    'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
-    path.resolve(__dirname, 'src', 'index.js'),
-  ],
+  entry: {
+    home: [
+      'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
+      path.resolve(__dirname, 'src', 'index.js'),
+    ],
+    work: [
+      'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
+      path.resolve(__dirname, 'src', 'work.js'),
+    ],
+  },
 
   output: {
     path: path.resolve(__dirname),
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     publicPath: '/',
   },
 

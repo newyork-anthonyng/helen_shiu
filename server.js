@@ -27,6 +27,10 @@ if (process.env.NODE_ENV !== 'production') {
     heartbeat: 10 * 1000,
   }));
 
+  app.get('/work/:workname', (req, res, next) => {
+    res.sendFile(path.join(__dirname, 'work.html'));
+  });
+
   app.use((req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
   });
