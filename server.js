@@ -36,12 +36,11 @@ if (process.env.NODE_ENV !== 'production') {
     res.sendFile(path.join(__dirname, 'index.html'));
   });
 } else {
-  app.get('/work/:workname', (req, res, next) => {
-    res.send('hello world');
-  });
+  const workServerRender = require('./dist/serverRender.work').default;
+  app.get('/work/:workname', workServerRender);
 
-  const serverRender = require('./dist/serverRender').default;
-  app.use(serverRender);
+  const homeServerRender = require('./dist/serverRender.home').default;
+  app.use(homeServerRender);
 }
 
 const server = app.listen(process.env.PORT || 3000, () => {

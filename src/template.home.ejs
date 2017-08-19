@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Helen Shiu</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400" rel="stylesheet">
+    <% for (var index in htmlWebpackPlugin.files.css) { %>
+      <link rel="stylesheet" type="text/css" href="<%= htmlWebpackPlugin.files.css[index] %>">
+    <% } %>
+  </head>
+  <body>
+    <%= htmlWebpackPlugin.options.markup %>
+
+    <% for (var index in htmlWebpackPlugin.files.js) { %>
+      <% if (htmlWebpackPlugin.files.js[index].indexOf('home') !== -1) { %>
+        <script type="text/javascript" src="<%= htmlWebpackPlugin.files.js[index] %>"></script>
+      <% } %>
+    <% } %>
+  </body>
+<html>
