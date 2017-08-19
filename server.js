@@ -28,7 +28,7 @@ if (process.env.NODE_ENV !== 'production') {
     heartbeat: 10 * 1000,
   }));
 
-  app.get('/work/:workname', (req, res, next) => {
+  app.get('/work/:workname', (req, res) => {
     res.sendFile(path.join(__dirname, 'work.html'));
   });
 
@@ -36,10 +36,11 @@ if (process.env.NODE_ENV !== 'production') {
     res.sendFile(path.join(__dirname, 'index.html'));
   });
 } else {
-  // const serverRender = require('./dist/serverRender').default;
-  const serverRender = require('./dist/serverRender').default;
-  console.log(serverRender);
+  app.get('/work/:workname', (req, res, next) => {
+    res.send('hello world');
+  });
 
+  const serverRender = require('./dist/serverRender').default;
   app.use(serverRender);
 }
 
