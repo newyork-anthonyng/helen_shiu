@@ -19,8 +19,9 @@ body {
 }
 
 .container {
-  margin: 0 auto;
-  max-width: 770px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
   text-align: center;
 
   h1 {
@@ -29,6 +30,37 @@ body {
   }
 
   img {
+    margin: 17px 0;
     width: 100%;
   }
+
+  p {
+    font-size: 14px;
+    line-height: 24px;
+    margin: 14px 0;
+  }
+
+  @media(min-width: $desktop) {
+    p {
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+}
+
+.main {
+  height: 100%;
+  overflow: scroll;
+}
+
+.childContainer {
+  margin: 0 auto;
+  max-width: 770px;
+}
+
+.footer {
+  align-items: center;
+  display: flex;
+  flex-basis: 80px;
+  justify-content: center;
 }

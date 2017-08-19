@@ -17,19 +17,27 @@ const WinnieThePooh = () => (
       Student work created using InDesign and Photoshop
     </p>
 
-    <img src="/winnie/winnie_3.jpg" />
-    <img src="/winnie/winnie_4.jpg" />
-    <img src="/winnie/winnie_5.jpg" />
-    <img src="/winnie/winnie_6.jpg" />
+    <div className={styles.squareImageContainer}>
+      <div className={styles.imageWrapper}><img src="/winnie/winnie_3.jpg" /></div>
+      <div className={styles.imageWrapper}><img src="/winnie/winnie_4.jpg" /></div>
+      <div className={styles.imageWrapper}><img src="/winnie/winnie_5.jpg" /></div>
+      <div className={styles.imageWrapper}><img src="/winnie/winnie_6.jpg" /></div>
+    </div>
 
     <p>
       With more card stock paper available to use, I continued building on my initial creation as a personal side project.
     </p>
 
-    <img src="/winnie/winnie_7.jpg" />
-    <img src="/winnie/winnie_8.jpg" />
-    <img src="/winnie/winnie_9.jpg" />
-    <img src="/winnie/winnie_10.jpg" />
+    <div className={styles.gridImageContainer}>
+      <div className={styles.gridOne}>
+        <img src="/winnie/winnie_7.jpg" />
+      </div>
+      <div className={styles.gridTwo}>
+        <img src="/winnie/winnie_8.jpg" />
+        <img src="/winnie/winnie_9.jpg" />
+        <img src="/winnie/winnie_10.jpg" />
+      </div>
+    </div>
   </div>
 );
 

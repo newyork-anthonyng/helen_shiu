@@ -4,9 +4,11 @@ import styles from './styles.css';
 
 const WorkPageLayout = ({ children }) => (
   <div className={styles.container}>
-    {children}
+    <main className={styles.main}>
+      <div className={styles.childContainer}>{children}</div>
+    </main>
 
-    <Footer />
+    <Footer className={styles.footer} />
   </div>
 );
 
