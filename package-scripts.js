@@ -8,7 +8,7 @@ module.exports = {
     },
 
     build: {
-      default: 'webpack && say webpack finished',
+      default: 'webpack',
 
       watch: {
         script: 'webpack --watch',
