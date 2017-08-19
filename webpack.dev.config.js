@@ -40,4 +40,8 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
   ],
+
+  resolve: {
+    modules: ["node_modules", "shared"]
+  }
 };

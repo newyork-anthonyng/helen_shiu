@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Footer from 'components/Footer';
 import Menu from './components/Menu';
 import MenuButton from './components/MenuButton';
 import MenuDisplay from './components/MenuDisplay';
@@ -43,20 +44,13 @@ class App extends Component {
     );
   }
 
-  renderFooter = () => {
-    return (
-      <footer className={styles.footer}>
-        © 2017 Helen Shiu. All rights reserved.
-      </footer>
-    );
-  }
-
   render() {
     return (
       <div>
         {this.renderHeading()}
         {this.renderWork()}
-        {this.renderFooter()}
+
+        <Footer className={styles.footer} />
       </div>
     );
   }

@@ -83,7 +83,11 @@ const serverConfig = {
 
   plugins: [
     new ExtractTextPlugin('styles.css'),
-  ]
+  ],
+
+  resolve: {
+    modules: ["node_modules", "shared"]
+  }
 };
 
 module.exports = [clientConfig, serverConfig];
