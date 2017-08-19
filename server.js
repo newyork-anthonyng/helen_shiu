@@ -35,7 +35,9 @@ if (process.env.NODE_ENV !== 'production') {
     res.sendFile(path.join(__dirname, 'index.html'));
   });
 } else {
+  // const serverRender = require('./dist/serverRender').default;
   const serverRender = require('./dist/serverRender').default;
+  console.log(serverRender);
 
   app.use(serverRender);
 }

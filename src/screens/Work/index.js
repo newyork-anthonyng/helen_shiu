@@ -1,28 +1,25 @@
 import React, { Component } from 'react';
 import { Switch } from 'react-router-dom';
 import { Route, Redirect } from 'react-router';
+import PageLayout from './components/WorkPageLayout';
 
-const Nest = () => <h1>Nest</h1>;
-const Pooh = () => <h1>Pooh</h1>;
-const Other = (props) => {
-  console.log(props);
- return <h1>Other</h1>;
-}
+import Nest from './components/Nest';
+import SwimTribe from './components/SwimTribe';
+import Wanderer from './components/Wanderer';
+import Pooh from './components/WinnieThePooh';
 
 class Work extends Component {
   render() {
     return (
-      <div>
+      <PageLayout>
         <Switch>
           <Route path="/work/nest" component={Nest} />
           <Route path="/work/pooh" component={Pooh} />
+          <Route path="/work/swimtribe" component={SwimTribe} />
+          <Route path="/work/wanderer" component={Wanderer} />
           <Redirect to="/" />
         </Switch>
-        <p>
-          Some info
-        </p>
-        <footer>© 2017 Helen Shiu. All rights reserved.</footer>
-      </div>
+      </PageLayout>
     );
   }
 }
