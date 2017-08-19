@@ -1,5 +1,4 @@
 import React from 'react';
-// import Footer from '../../../../shared/Footer';
 import Footer from 'components/Footer/index.js';
 import styles from './styles.css';
 

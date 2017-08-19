@@ -34,11 +34,11 @@ class App extends Component {
       <Menu>
         <MenuButton><h2 className={styles.menuButton}>Work</h2></MenuButton>
         <MenuDisplay className={styles.workMenuDisplay}>
-          <a href="#">RBX Active</a>
-          <a href="#">Wanderer</a>
-          <a href="#">Swim Tribe</a>
-          <a href="#">Nest</a>
-          <a href="#">The Complete Tales of Winnie the Pooh</a>
+          <TargetBlankLink href="#">RBX Active</TargetBlankLink>
+          <TargetBlankLink href="/work/wanderer">Wanderer</TargetBlankLink>
+          <TargetBlankLink href="/work/swimtribe">Swim Tribe</TargetBlankLink>
+          <TargetBlankLink href="/work/nest">Nest</TargetBlankLink>
+          <TargetBlankLink href="/work/pooh">The Complete Tales of Winnie the Pooh</TargetBlankLink>
         </MenuDisplay>
       </Menu>
     );
