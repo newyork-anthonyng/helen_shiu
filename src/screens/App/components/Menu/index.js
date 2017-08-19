@@ -56,16 +56,6 @@ class Menu extends Component {
             visible: this.state.isMenuVisible,
           };
           return cloneElement(child, menuDisplayProps);
-        // if (this.state.isMenuVisible) {
-        //   const menuDisplayProps = {
-        //     shouldFocusOnLastElement: this.state.shouldFocusOnLastElement,
-        //     ref: 'MenuDisplay',
-        //     'aria-labelledby': `${this.UUID}-button`,
-        //     id: `${this.UUID}-display`,
-        //   };
-        //   return cloneElement(child, menuDisplayProps);
-        // }
-        // return null;
       } else if (child.type === MenuButton) {
         const menuButtonProps = {
           onClick: this.handleMenuButtonClick,
