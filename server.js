@@ -8,6 +8,7 @@ app.set('views', 'dist');
 
 app.use(compression());
 app.use(express.static('dist'));
+app.use(express.static('assets'));
 
 if (process.env.NODE_ENV !== 'production') {
   const webpack = require('webpack');
