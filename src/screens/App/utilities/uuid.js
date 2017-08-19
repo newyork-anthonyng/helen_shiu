@@ -1,6 +1,8 @@
-const uuid = () => {
-  return Math.floor((1 + Math.random()) * 0x10000)
-    .toString(16)
-    .substring(1);
-};
+const uuid = (function() {
+  let counter = 0;
+
+  return function innerUuid() {
+    return counter;
+  }
+})();
 export default uuid;

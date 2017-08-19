@@ -25,7 +25,10 @@ const clientConfig = {
           use: [
             {
               loader: 'css-loader',
-              options: { modules: true },
+              options: {
+                modules: true,
+                localIdentName: '[name]__[local]--[hash:base64:5]'
+              },
             },
             'sass-loader',
           ],
@@ -33,8 +36,6 @@ const clientConfig = {
       }
     ],
   },
-
-  devtool: '#source-map',
 
   plugins: [
     new CleanWebpackPlugin(['dist']),
@@ -49,6 +50,10 @@ const clientConfig = {
 
     new ExtractTextPlugin('styles.css'),
   ],
+
+  resolve: {
+    modules: ["node_modules", "shared"]
+  }
 };
 
 const serverConfig = {
@@ -74,7 +79,10 @@ const serverConfig = {
           fallback: 'style-loader',
           use: {
             loader: 'css-loader',
-            options: { modules: true },
+            options: {
+              modules: true,
+              localIdentName: '[name]__[local]--[hash:base64:5]'
+            },
           },
         }),
       }
