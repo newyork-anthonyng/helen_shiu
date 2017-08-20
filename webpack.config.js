@@ -3,7 +3,29 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const nodeExternals = require('webpack-node-externals');
+
+// sw-precache-webpack-plugin configurations
+const SERVICE_WORKER_FILENAME = 'sw.js';
+const SERVICE_WORKER_CACHEID = 'helen_shiu';
+const SERVICE_WORKER_IGNORE_PATTERNS = [/\.ejs$/];
+const SW_PRECACHE_CONFIG = {
+  minify: true,
+  cacheId: SERVICE_WORKER_CACHEID,
+  filename: SERVICE_WORKER_FILENAME,
+  staticFileGlobsIgnorePatterns: SERVICE_WORKER_IGNORE_PATTERNS,
+  runtimeCaching: [
+    {
+      urlPattern: '/',
+      handler: 'cacheFirst',
+    },
+    {
+      urlPattern: '/work',
+      handler: 'cacheFirst',
+    }
+  ],
+};
 
 const homeCss = new ExtractTextPlugin('home.css');
 const workCss = new ExtractTextPlugin('work.css');
@@ -75,6 +97,7 @@ const clientConfig = {
       minify: {
         collapseWhitespace: true,
       },
+      serviceWorker: `/${SERVICE_WORKER_FILENAME}`,
     }),
 
     new HtmlWebpackPlugin({
@@ -87,10 +110,13 @@ const clientConfig = {
       minify: {
         collapseWhitespace: true,
       },
+      serviceWorker: `/${SERVICE_WORKER_FILENAME}`,
     }),
 
     homeCss,
     workCss,
+
+    new SWPrecacheWebpackPlugin(SW_PRECACHE_CONFIG),
 
     new webpack.optimize.UglifyJsPlugin()
   ],

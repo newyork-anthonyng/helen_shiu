@@ -14,5 +14,23 @@
   </head>
   <body>
     <%= htmlWebpackPlugin.options.markup %>
+
+    <script type="text/javascript">
+      // Register Service worker
+      (function(serviceWorkerFilename) {
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker
+            .register(serviceWorkerFilename)
+            .then(function() {
+              console.log('Service worker registered!');
+            })
+            .catch(function(error) {
+              console.log('Error registering service worker: ', error);
+            });
+        } else {
+          log('Not supported by browser');
+        }
+      })('<%= htmlWebpackPlugin.options.serviceWorker %>');
+    </script>
   </body>
 <html>
