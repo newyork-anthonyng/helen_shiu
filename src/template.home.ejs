@@ -12,7 +12,9 @@
     <% } %>
 
     <% for (var index in htmlWebpackPlugin.files.css) { %>
-      <link rel="stylesheet" type="text/css" href="<%= htmlWebpackPlugin.files.css[index] %>">
+      <% if (htmlWebpackPlugin.files.css[index].indexOf('home') !== -1) { %>
+        <link rel="stylesheet" type="text/css" href="<%= htmlWebpackPlugin.files.css[index] %>">
+      <% } %>
     <% } %>
   </head>
   <body>
