@@ -1,10 +1,17 @@
 module.exports = {
   scripts: {
-    default: 'NODE_ENV=production nodemon server.js',
+    default: 'NODE_ENV=production node server.js',
 
     dev: {
-      script: 'NODE_ENV=development node server.js',
-      description: 'Run express server with Hot Module Reloading',
+      default: {
+        script: 'NODE_ENV=development node server.js',
+        description: 'Run express server with Hot Module Reloading',
+      },
+
+      server: {
+        script: 'NODE_ENV=production nodemon server.js',
+        description: 'Run express server with Server Side Rendering',
+      },
     },
 
     build: {
