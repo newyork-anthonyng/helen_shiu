@@ -13,7 +13,7 @@
     <%= htmlWebpackPlugin.options.markup %>
 
     <% for (var index in htmlWebpackPlugin.files.js) { %>
-      <% if (htmlWebpackPlugin.files.js[index].indexOf('home') !== -1) { %>
+      <% if (htmlWebpackPlugin.files.js[index].indexOf('home') !== -1 || htmlWebpackPlugin.files.js[index].indexOf('vendor') !== -1) { %>
         <script type="text/javascript" src="<%= htmlWebpackPlugin.files.js[index] %>"></script>
       <% } %>
     <% } %>

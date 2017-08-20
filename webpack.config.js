@@ -11,7 +11,8 @@ const workCss = new ExtractTextPlugin('work.css');
 const clientConfig = {
   entry: {
     home: path.resolve(__dirname, 'src', 'index.js'),
-    work: path.resolve(__dirname, 'src', 'work.js'),
+    work: path.resolve(__dirname, 'src', 'work.js'), // needed to produce CSS
+    vendor: ['react', 'react-dom']
   },
 
   output: {
@@ -32,6 +33,7 @@ const clientConfig = {
               loader: 'css-loader',
               options: {
                 modules: true,
+                minimize: true,
                 localIdentName: '[name]__[local]--[hash:base64:5]'
               },
             },
@@ -49,6 +51,7 @@ const clientConfig = {
               loader: 'css-loader',
               options: {
                 modules: true,
+                minimize: true,
                 localIdentName: '[name]__[local]--[hash:base64:5]'
               },
             },
@@ -86,9 +89,10 @@ const clientConfig = {
       },
     }),
 
-    // new ExtractTextPlugin('styles.css'),
     homeCss,
     workCss,
+
+    new webpack.optimize.UglifyJsPlugin()
   ],
 
   resolve: {
@@ -124,6 +128,7 @@ const serverConfig = {
               loader: 'css-loader',
               options: {
                 modules: true,
+                minimize: true,
                 localIdentName: '[name]__[local]--[hash:base64:5]'
               },
             },
@@ -141,6 +146,7 @@ const serverConfig = {
               loader: 'css-loader',
               options: {
                 modules: true,
+                minimize: true,
                 localIdentName: '[name]__[local]--[hash:base64:5]'
               },
             },
@@ -152,7 +158,6 @@ const serverConfig = {
   },
 
   plugins: [
-    // new ExtractTextPlugin('styles.css'),
     homeCss,
     workCss
   ],

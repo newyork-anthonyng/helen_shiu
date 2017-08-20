@@ -21,6 +21,11 @@ module.exports = {
         script: 'webpack --watch',
         description: 'Run webpack in watch mode',
       },
+
+      prod: {
+        script: 'webpack -p',
+        description: 'Optimize webpack build for production',
+      },
     },
     test: {
       default: 'jest',
