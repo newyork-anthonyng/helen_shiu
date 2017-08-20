@@ -5,6 +5,7 @@
     <title>Helen Shiu</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400" rel="stylesheet">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
     <% for (var index in htmlWebpackPlugin.files.css) { %>
       <% if (htmlWebpackPlugin.files.css[index].indexOf('work') !== -1) { %>
         <link rel="stylesheet" type="text/css" href="../<%= htmlWebpackPlugin.files.css[index] %>">
