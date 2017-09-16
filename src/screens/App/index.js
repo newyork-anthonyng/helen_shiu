@@ -3,9 +3,10 @@ import Footer from 'components/Footer';
 import { Link } from 'react-router-dom';
 import { Switch, Route, Redirect } from 'react-router';
 import styles from './styles.css';
+import cx from "classnames";
 
 const Home = () => (
-  <p>
+  <p className={styles.home}>
     I'm a NYC based graphic designer with a tax & accounting background, currently at RBX Active.
   </p>
 );
@@ -32,15 +33,41 @@ const NoMatch = () => (
   <Redirect to="/" />
 );
 
+const TitleScreen = ({ open }) => {
+  const className = cx(styles.titleScreen, { [styles.titleScreenActive]: open });
+
+  return (
+    <div className={className}>
+      <h1>Helen Shiu</h1>
+    </div>
+  );
+};
+
 class App extends Component {
-  componentDidMount() {
-    
+  constructor() {
+    super();
+
+    this.state = {
+      // isTitleScreenOpen: true
+      isTitleScreenOpen: false
+    };
   }
+
+  componentDidMount() {
+    window.setTimeout(() => {
+      this.setState({
+        isTitleScreenOpen: false
+      });
+    }, 1000);
+  }
+
   render() {
     return (
-      <div>
+      <div className={styles.body}>
+        <TitleScreen open={this.state.isTitleScreenOpen} />
+
         <nav className={styles.nav}>
-          <Link to="/">Helen Shiu</Link>
+          <Link className={styles.homeLink} to="/">Helen Shiu</Link>
 
           <div className={styles.secondaryNav}>
             <Link to="/work">Work</Link>
@@ -55,7 +82,7 @@ class App extends Component {
           <Route component={NoMatch} />
         </Switch>
 
-        <Footer />
+        <Footer className={styles.footer} />
       </div>
     );
   }
