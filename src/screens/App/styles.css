@@ -97,6 +97,9 @@ a:visited {
 }
 
 .work {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   list-style: none;
   padding: 0;
 }
@@ -110,4 +113,16 @@ a:visited {
   content: counter(worksection, decimal-leading-zero);
   display: inline-block;
   width: 60px;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  list-style: none;
+  padding: 0;
+}
+
+.contact li {
+  margin-bottom: 5px;
 }

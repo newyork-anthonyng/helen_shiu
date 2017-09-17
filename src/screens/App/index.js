@@ -12,21 +12,21 @@ const Home = () => (
 );
 
 const Work = () => (
-  <ul className={styles.work}>
+  <ol className={styles.work}>
     <li><a href="#">RBX Active</a></li>
     <li><a href="/work/wanderer">Wanderer</a></li>
     <li><a href="/work/swimtribe">Swim Tribe</a></li>
     <li><a href="/work/nest">Nest</a></li>
     <li><a href="/work/pooh">The Complete Tales of Winnie the Pooh</a></li>
-  </ul>
+  </ol>
 )
 
 const Contact = () => (
-  <div>
-    <a href="mailto:helen.shiu@outlook.com">Email</a>
-    <a href="#">Resume</a>
-    <a href="https://www.linkedin.com/in/helen-shiu-62384027">LinkedIn</a>
-  </div>
+  <ul className={styles.contact}>
+    <li><a href="mailto:helen.shiu@outlook.com">Email</a></li>
+    <li><a href="#">Resume</a></li>
+    <li><a href="https://www.linkedin.com/in/helen-shiu-62384027">LinkedIn</a></li>
+  </ul>
 );
 
 const NoMatch = () => (
