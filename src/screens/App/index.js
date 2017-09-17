@@ -12,13 +12,13 @@ const Home = () => (
 );
 
 const Work = () => (
-  <div>
-    <a href="#">RBX Active</a>
-    <a href="/work/wanderer">Wanderer</a>
-    <a href="/work/swimtribe">Swim Tribe</a>
-    <a href="/work/nest">Nest</a>
-    <a href="/work/pooh">The Complete Tales of Winnie the Pooh</a>
-  </div>
+  <ul className={styles.work}>
+    <li><a href="#">RBX Active</a></li>
+    <li><a href="/work/wanderer">Wanderer</a></li>
+    <li><a href="/work/swimtribe">Swim Tribe</a></li>
+    <li><a href="/work/nest">Nest</a></li>
+    <li><a href="/work/pooh">The Complete Tales of Winnie the Pooh</a></li>
+  </ul>
 )
 
 const Contact = () => (

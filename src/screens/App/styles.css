@@ -85,10 +85,29 @@ a:visited {
 .footer {
   display: flex;
   align-items: flex-end;
+  font-size: 14px;
+  width: 100%;
 }
 
 .home {
   display: flex;
   align-items: flex-end;
   line-height: 40px;
+  max-width: 580px;
+}
+
+.work {
+  list-style: none;
+  padding: 0;
+}
+
+.work li {
+  counter-increment: worksection;
+  margin-bottom: 5px;
+}
+
+.work li::before {
+  content: counter(worksection, decimal-leading-zero);
+  display: inline-block;
+  width: 60px;
 }
