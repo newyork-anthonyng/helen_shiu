@@ -9,12 +9,10 @@ const nodeExternals = require('webpack-node-externals');
 // sw-precache-webpack-plugin configurations
 const SERVICE_WORKER_FILENAME = 'sw.js';
 const SERVICE_WORKER_CACHEID = 'helen_shiu';
-const SERVICE_WORKER_IGNORE_PATTERNS = [/\.ejs$/];
 const SW_PRECACHE_CONFIG = {
   minify: true,
   cacheId: SERVICE_WORKER_CACHEID,
   filename: SERVICE_WORKER_FILENAME,
-  staticFileGlobsIgnorePatterns: SERVICE_WORKER_IGNORE_PATTERNS,
   runtimeCaching: [
     {
       urlPattern: '/',
@@ -27,8 +25,8 @@ const SW_PRECACHE_CONFIG = {
   ],
 };
 
-const homeCss = new ExtractTextPlugin('home.css');
-const workCss = new ExtractTextPlugin('work.css');
+const homeCss = new ExtractTextPlugin('home.client.css');
+const workCss = new ExtractTextPlugin('work.client.css');
 
 const clientConfig = {
   entry: {
@@ -39,7 +37,7 @@ const clientConfig = {
 
   output: {
     path: path.resolve(__dirname,'dist'),
-    filename: '[name].bundle.[hash].js',
+    filename: '[name].client.bundle.[hash].js',
   },
 
   module: {
@@ -86,38 +84,9 @@ const clientConfig = {
 
   plugins: [
     new CleanWebpackPlugin(['dist']),
-
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'src', 'template.home.ejs'),
-      filename: 'home.ejs',
-      markup: `
-        <div id="app"><%- markup %></div>
-      `,
-      inject: false,
-      minify: {
-        collapseWhitespace: true,
-      },
-      serviceWorker: `/${SERVICE_WORKER_FILENAME}`,
-    }),
-
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'src', 'template.work.ejs'),
-      filename: 'work.ejs',
-      markup: `
-        <div id="app"><%- markup %></div>
-      `,
-      inject: false,
-      minify: {
-        collapseWhitespace: true,
-      },
-      serviceWorker: `/${SERVICE_WORKER_FILENAME}`,
-    }),
-
     homeCss,
     workCss,
-
     new SWPrecacheWebpackPlugin(SW_PRECACHE_CONFIG),
-
     new webpack.optimize.UglifyJsPlugin()
   ],
 

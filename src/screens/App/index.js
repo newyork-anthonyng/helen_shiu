@@ -34,7 +34,7 @@ const NoMatch = () => (
 );
 
 const TitleScreen = ({ open }) => {
-  const className = cx(styles.titleScreen, { [styles.titleScreenActive]: open });
+  const className = cx("titleOverlay", styles.titleScreen, { [styles.titleScreenActive]: open });
 
   return (
     <div className={className}>
