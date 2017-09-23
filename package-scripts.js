@@ -1,6 +1,6 @@
 module.exports = {
   scripts: {
-    default: 'NODE_ENV=production node server.js',
+    default: 'webpack -p && NODE_ENV=production node server.js',
 
     dev: {
       default: {
