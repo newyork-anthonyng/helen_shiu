@@ -48,8 +48,7 @@ class App extends Component {
     super();
 
     this.state = {
-      // isTitleScreenOpen: true
-      isTitleScreenOpen: false
+      isTitleScreenOpen: true
     };
   }
 
