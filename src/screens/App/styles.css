@@ -2,9 +2,11 @@ $mainColor: #FFEB94;
 $textColor: white;
 
 html, body {
+  height: 100%;
+  letter-spacing: 4px;
   margin: 0;
   padding: 0;
-  height: 100%;
+  text-transform: uppercase;
 }
 
 body {
@@ -42,7 +44,6 @@ a:visited {
 .nav {
   display: flex;
   justify-content: space-between;
-  text-transform: uppercase;
   width: 100%;
 }
 
@@ -57,7 +58,6 @@ a:visited {
   font-size: 14px;
   text-align: right;
   line-height: 30px;
-
 }
 
 .titleScreen {
@@ -75,7 +75,6 @@ a:visited {
   justify-content: center;
   align-items: center;
   color: $mainColor;
-  text-transform: uppercase;
 }
 
 .titleScreenActive {
@@ -90,10 +89,11 @@ a:visited {
 }
 
 .home {
-  display: flex;
   align-items: flex-end;
+  display: flex;
   line-height: 40px;
-  max-width: 580px;
+  max-width: 573px;
+  text-transform: none;
 }
 
 .work {
@@ -106,13 +106,14 @@ a:visited {
 
 .work li {
   counter-increment: worksection;
-  margin-bottom: 5px;
+  display: flex;
+  margin-bottom: 9px;
 }
 
 .work li::before {
   content: counter(worksection, decimal-leading-zero);
-  display: inline-block;
-  width: 60px;
+  flex-basis: 60px;
+  flex-shrink: 0;
 }
 
 .contact {
@@ -124,5 +125,13 @@ a:visited {
 }
 
 .contact li {
-  margin-bottom: 5px;
+  counter-increment: contactsection;
+  display: flex;
+  margin-bottom: 9px;
+}
+
+.contact li::before {
+  content: counter(contactsection, decimal-leading-zero);
+  flex-basis: 60px;
+  flex-shrink: 0;
 }
