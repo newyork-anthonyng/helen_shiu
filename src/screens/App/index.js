@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import HoverEffectLink from "./components/HoverEffectLink";
 import Footer from 'components/Footer';
 import { Link } from 'react-router-dom';
 import { Switch, Route, Redirect } from 'react-router';
@@ -7,25 +8,25 @@ import cx from "classnames";
 
 const Home = () => (
   <p className={styles.home}>
-    I'm a NYC based graphic designer with a tax & accounting background, currently at RBX Active.
+    I&apos;m a NYC based graphic designer with a tax & accounting background, currently at RBX Active.
   </p>
 );
 
 const Work = () => (
   <ol className={styles.work}>
-    <li><a href="#">RBX Active</a></li>
-    <li><a href="/work/wanderer">Wanderer</a></li>
-    <li><a href="/work/swimtribe">Swim Tribe</a></li>
-    <li><a href="/work/nest">Nest</a></li>
-    <li><a href="/work/pooh">The Complete Tales of Winnie the Pooh</a></li>
+    <li><HoverEffectLink href="#" target="_blank" rel="noopener noreferrer">RBX Active</HoverEffectLink></li>
+    <li><HoverEffectLink href="/work/wanderer" target="_blank" rel="noopener noreferrer">Wanderer</HoverEffectLink></li>
+    <li><HoverEffectLink href="/work/swimtribe" target="_blank" rel="noopener noreferrer">Swim Tribe</HoverEffectLink></li>
+    <li><HoverEffectLink href="/work/nest" target="_blank" rel="noopener noreferrer">Nest</HoverEffectLink></li>
+    <li><HoverEffectLink href="/work/pooh" target="_blank" rel="noopener noreferrer">The Complete Tales of Winnie the Pooh</HoverEffectLink></li>
   </ol>
 )
 
 const Contact = () => (
   <ul className={styles.contact}>
     <li><a href="mailto:helen.shiu@outlook.com">Email</a></li>
-    <li><a href="#">Resume</a></li>
-    <li><a href="https://www.linkedin.com/in/helen-shiu-62384027">LinkedIn</a></li>
+    <li><a href="https://drive.google.com/file/d/0B5c48vRzSDJWUXhPMHFjd2RCaVpSZzQyNzREMFo2T2owTEtj/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a></li>
+    <li><a href="https://www.linkedin.com/in/helen-shiu-62384027" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
   </ul>
 );
 
@@ -48,7 +49,7 @@ class App extends Component {
     super();
 
     this.state = {
-      isTitleScreenOpen: true
+      isTitleScreenOpen: false
     };
   }
 

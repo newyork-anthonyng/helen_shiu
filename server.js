@@ -28,19 +28,19 @@ if (process.env.NODE_ENV !== 'production') {
     heartbeat: 10 * 1000,
   }));
 
-  const workServerRender = require('./dist/serverRender.work').default;
-  app.get('/work/:workname', workServerRender);
-
-  const homeServerRender = require('./dist/serverRender.home').default;
-  app.use(homeServerRender);
+  // const workServerRender = require('./dist/serverRender.work').default;
+  // app.get('/work/:workname', workServerRender);
+  //
+  // const homeServerRender = require('./dist/serverRender.home').default;
+  // app.use(homeServerRender);
 
   // app.get('/work/:workname', (req, res) => {
   //   res.sendFile(path.join(__dirname, 'work.html'));
   // });
 
-  // app.use((req, res) => {
-  //   res.sendFile(path.join(__dirname, 'index.html'));
-  // });
+  app.use((req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+  });
 } else {
   const workServerRender = require('./dist/serverRender.work').default;
   app.get('/work/:workname', workServerRender);
