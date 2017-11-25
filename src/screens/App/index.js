@@ -75,14 +75,17 @@ class App extends Component {
           </div>
         </nav>
 
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/work" component={Work} />
-          <Route path="/contact" component={Contact} />
-          <Route component={NoMatch} />
-        </Switch>
+        <div className={styles.appleSauce}>
 
-        <Footer className={styles.footer} />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/work" component={Work} />
+            <Route path="/contact" component={Contact} />
+            <Route component={NoMatch} />
+          </Switch>
+
+          <Footer className={styles.footer} />
+        </div>
       </div>
     );
   }
