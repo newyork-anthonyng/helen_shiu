@@ -25,7 +25,7 @@ const Work = () => (
 const Contact = () => (
   <ul className={styles.contact}>
     <li><a href="mailto:helen.shiu@outlook.com">Email</a></li>
-    <li><a href="https://drive.google.com/file/d/0B5c48vRzSDJWUXhPMHFjd2RCaVpSZzQyNzREMFo2T2owTEtj/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a></li>
+    <li><a href="https://drive.google.com/file/d/0B5c48vRzSDJWcW1FNmtla3M4RG5USEowMl9heG5BUG5sd0lR/view" target="_blank" rel="noopener noreferrer">Resume</a></li>
     <li><a href="https://www.linkedin.com/in/helen-shiu-62384027" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
   </ul>
 );
