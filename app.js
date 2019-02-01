@@ -9,7 +9,27 @@ menuLinks.forEach(menuLink => {
     const id = menuLink.getAttribute("href").slice(1);
     menuLinkObject[id] = menuLink;
 });
-let activeMenuLink = null;
+let activeMenuLink = null; // this will hold the ID of the active view
+
+previousLink.addEventListener("click", function(e) {
+    e.preventDefault();
+
+    if (!activeMenuLink) return;
+
+    const previousSibling = document.getElementById(activeMenuLink).previousElementSibling;
+
+    location.href = `#${previousSibling.getAttribute("id")}`;
+});
+
+nextLink.addEventListener("click", function(e) {
+    e.preventDefault();
+
+    if (!activeMenuLink) return;
+
+    const nextSibling = document.getElementById(activeMenuLink).nextElementSibling;
+
+    location.href = `#${nextSibling.getAttribute("id")}`;
+});
 
 document.addEventListener("scroll", function() {
     let currentView;
