@@ -50,18 +50,25 @@ document.addEventListener("scroll", function() {
 
     const id = currentView.getAttribute("id");
     if (activeMenuLink !== id) {
-        activeMenuLink && menuLinkObject[activeMenuLink].classList.remove("active");
-        id && menuLinkObject[id].classList.add("active");
+        const oldMenuLink = menuLinkObject[activeMenuLink];
+        if (oldMenuLink) {
+            oldMenuLink.classList.remove("active");
+        }
+
+        const newActiveView = menuLinkObject[id];
+        if (newActiveView) {
+            newActiveView.classList.add("active");
+        }
 
         activeMenuLink = id;
-        console.log("newActiveMenuLink", activeMenuLink);
     }
 });
 
 function isInView(ele) {
     const bounding = ele.getBoundingClientRect();
     const { top, height } = bounding;
-    const isInView = (top <= 0) && (Math.abs(top) <= height);
+    const roundedTop = Math.floor(top);
+    const isInView = (roundedTop <= 0) && (Math.abs(roundedTop) < height);
 
     return isInView;
 }
