@@ -1,5 +1,4 @@
 const pageContainers = document.querySelectorAll(".page-container");
-
 const previousLink = document.querySelector(".js-previous-link");
 const nextLink = document.querySelector(".js-next-link");
 
@@ -9,7 +8,7 @@ menuLinks.forEach(menuLink => {
     const id = menuLink.getAttribute("href").slice(1);
     menuLinkObject[id] = menuLink;
 });
-let activeMenuLink = null; // this will hold the ID of the active view
+let activeMenuLink = null; // this holds the ID of the active view
 
 previousLink.addEventListener("click", function(e) {
     e.preventDefault();
@@ -72,4 +71,3 @@ function isInView(ele) {
 
     return isInView;
 }
-

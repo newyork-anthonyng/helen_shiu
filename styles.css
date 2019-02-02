@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
 }
 
 html, body {
@@ -10,10 +11,9 @@ html, body {
 
 .header {
     color: #FFEB60;
-    font-family: Helvetica, sans-serif;
     font-size: 20px;
     font-weight: 900;
-    margin: 0;
+    margin: 0 0 100px 0;
     text-transform: uppercase;
 }
 
@@ -25,9 +25,13 @@ html, body {
 
 .text {
     color: black;
-    font-family: Helvetica, sans-serif;
     font-size: 20px;
     font-weight: 300;
+    margin: 0 0 20px 0;
+}
+
+.last-text {
+    margin-bottom: 90px;
 }
 
 .link {
@@ -153,17 +157,27 @@ html, body {
 
 .menu {
     position: fixed;
-    right: 100px;
+    right: 60px;
     display: flex;
     flex-direction: column;
-    top: 50%;
+    top: 60px;
+    bottom: 60px;
     z-index: 999;
+    justify-content: space-between;
+}
+
+.menu-link-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu-link-list-item {
+    margin-bottom: 16px;
 }
 
 .menu-link {
     font-size: 13px;
     text-decoration: none;
-    margin-bottom: 16px;
 }
 
 .menu-link.active {
@@ -180,11 +194,13 @@ html, body {
 .bottom-arrow-link {
     position: absolute;
     bottom: 50px;
+    text-decoration: none;
 }
 
 .top-arrow-link {
     position: absolute;
     top: 50px;
+    text-decoration: none;
 }
 
 @keyframes wobble {
