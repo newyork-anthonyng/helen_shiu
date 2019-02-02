@@ -54,6 +54,7 @@ html, body {
     min-height: 100vh;
     padding-bottom: 100px;
     padding-top: 120px;
+    position: relative;
 }
 
 .content-container {
@@ -156,6 +157,7 @@ html, body {
     display: flex;
     flex-direction: column;
     top: 50%;
+    z-index: 999;
 }
 
 .menu-link {
@@ -166,4 +168,45 @@ html, body {
 
 .menu-link.active {
     color: red;
+}
+
+.wiggle {
+    display: block;
+    animation-name: wobble;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+.bottom-arrow-link {
+    position: absolute;
+    bottom: 50px;
+}
+
+.top-arrow-link {
+    position: absolute;
+    top: 50px;
+}
+
+@keyframes wobble {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    15% {
+      transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
+    }
+    30% {
+      transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
+    }
+    45% {
+      transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
+    }
+    60% {
+      transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
+    }
+    75% {
+      transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
+    }
+    to {
+      transform: translate3d(0, 0, 0);
+    }
 }
