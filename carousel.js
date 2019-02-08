@@ -145,6 +145,7 @@ class MyCarousel extends HTMLElement {
 
                 .carousel-inner {
                     display: flex;
+                    position: relative;
                 }
 
                 .carousel-img {
@@ -158,14 +159,37 @@ class MyCarousel extends HTMLElement {
                 .carousel-img img {
                     height: 100%;
                 }
+
+                .carousel-previous {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    z-index: 999;
+                    cursor: pointer;
+                    width: 250px;
+                    opacity: 0;
+                }
+
+                .carousel-next {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    right: 0;
+                    z-index: 999;
+                    cursor: pointer;
+                    width: 250px;
+                    opacity: 0;
+                }
             </style>
             <div class="js-carousel carousel">
                 <div class="js-carousel-inner carousel-inner">
                     <slot></slot>
+                    <button class="js-carousel-previous carousel-previous">Previous image</button>
+                    <button class="js-carousel-next carousel-next">Next image</button>
                 </div>
             </div>
-            <button class="js-carousel-previous">Previous image</button>
-            <button class="js-carousel-next">Next image</button>
+
         `
         this.previousButtonEle = this.shadowRoot.querySelector(".js-carousel-previous");
         this.nextButtonEle = this.shadowRoot.querySelector(".js-carousel-next");
