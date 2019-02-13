@@ -81,8 +81,21 @@ html, body {
     width: 100%;
 }
 
+.title-image--container {
+    position: relative;
+    top: -35px;
+}
+
 .full-width {
     width: 100%;
+}
+
+.image--full-width {
+    width: 100%;
+}
+
+.image--full-width:not(:last-child) {
+    margin-bottom: 25px;
 }
 
 .carousel-img {
