@@ -153,7 +153,7 @@ class MyCarousel extends HTMLElement {
                     justify-content: center;
                     flex: 0 0 50%;
                     transition: transform 0.3s ease-in-out;
-                    height: 650px;
+                    height: 550px;
                 }
 
                 .carousel-img img {

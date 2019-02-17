@@ -121,7 +121,7 @@ html, body {
     justify-content: center;
     flex: 0 0 50%;
     transition: transform 0.3s ease-in-out;
-    height: 650px;
+    height: 550px;
 }
 
 .carousel-img img {
@@ -282,7 +282,7 @@ html, body {
 }
 
 .three-by-three-column {
-    width: 33%;;
+    width: 33.33333%;;
     float: left;
 }
 
@@ -317,7 +317,7 @@ html, body {
 }
 
 .pooh-flex--second-half img {
-    margin-bottom: 13px;
+    margin-bottom: 15px;
 }
 
 .content-container--footer-text-container {
