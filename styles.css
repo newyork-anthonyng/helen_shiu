@@ -116,6 +116,12 @@ html, body {
     margin-bottom: 25px;
 }
 
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
 .carousel-img {
     display: flex;
     justify-content: center;
@@ -124,8 +130,35 @@ html, body {
     height: 550px;
 }
 
+.carousel-inner {
+    display: flex;
+    position: relative;
+}
+
 .carousel-img img {
     height: 100%;
+}
+
+.carousel-previous {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    cursor: pointer;
+    width: 250px;
+    opacity: 0;
+}
+
+.carousel-next {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 999;
+    cursor: pointer;
+    width: 250px;
+    opacity: 0;
 }
 
 .flex {

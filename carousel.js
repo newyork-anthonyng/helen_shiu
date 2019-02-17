@@ -1,242 +1,179 @@
-const OFFSET = -50;
-const leftOfCarouselTranslates = [
-    -100 + OFFSET,
-    -200 + OFFSET,
-    -300 + OFFSET,
-    -400 + OFFSET,
-    -500 + OFFSET,
-    -600 + OFFSET
-];
-
-function moveToLeftOfCarousel(node) {
-    // handle when image goes from left side of carousel to right side
-    // we don't want it to overlap the visible images
-    if (isOnRightOfCarousel(node)) {
-        node.style.opacity = "0";
-        node.addEventListener("transitionend", handleTransitionEnd);
-    }
-
-    moveToLeftOfCarouselWithOffset(node, 0);
-}
-
-function moveToRightOfCarousel(node) {
-    // handle when image goes from right side of carousel to left side
-    // we don't want it to overlap the visible images
-    if (isOnLeftOfCarousel(node)) {
-        node.style.opacity = "0";
-        node.addEventListener("transitionend", handleTransitionEnd);
-    }
-
-    moveToLeftOfCarouselWithOffset(node, 400);
-}
-
-function isOnRightOfCarousel(node) {
-    return getTransform(node) === leftOfCarouselTranslates[node.dataset.index] + 400;
-}
-
-function isOnLeftOfCarousel(node) {
-    return leftOfCarouselTranslates[node.dataset.index] === getTransform(node);
-}
-
-function handleTransitionEnd() {
-    this.removeEventListener("transitionend", handleTransitionEnd);
-    this.style.opacity = "1";
-}
-
-function moveToLeftOfCarouselWithOffset(node, offset) {
-    translateX(node, leftOfCarouselTranslates[node.dataset.index] + offset);
-}
-
-function moveToLeftMost(node) {
-    moveToLeftOfCarouselWithOffset(node, 100);
-}
-
-function moveToCenter(node) {
-    moveToLeftOfCarouselWithOffset(node, 200);
-}
-
-function moveToRightMost(node) {
-    moveToLeftOfCarouselWithOffset(node, 300);
-}
-
-function translateX(node, amount) {
-    node.style.transform = `translateX(${amount}%)`;
-}
-
-function positionImages(images) {
-    const [
-        leftSideOfCarousel,
-        leftmostImage,
-        centerImage,
-        rightmostImage,
-        rightSideOfCarousel,
-        anotherRightSideOfCarousel
-    ] = images;
-
-    moveToLeftOfCarousel(leftSideOfCarousel);
-    moveToLeftMost(leftmostImage)
-    moveToCenter(centerImage)
-    moveToRightMost(rightmostImage)
-    moveToRightOfCarousel(rightSideOfCarousel)
-    moveToRightOfCarousel(anotherRightSideOfCarousel);
-}
-
-function moveCarouselForward(images) {
-    /*
-    3 [ 1 2 3 ] 1 2
-    becomes
-    1 [ 2 3 1 ] 2 3
-    */
-    const newImages = [
-        ...images.slice(1),
-        images[0]
+(function() {
+    const OFFSET = -50;
+    const leftOfCarouselTranslates = [
+        -100 + OFFSET,
+        -200 + OFFSET,
+        -300 + OFFSET,
+        -400 + OFFSET,
+        -500 + OFFSET,
+        -600 + OFFSET
     ];
-    return newImages;
-}
 
-function moveCarouselBack(images) {
-    /*
-    3 [ 1 2 3 ] 1 2
-    becomes
-    2 [ 3 1 2 ] 3 1
-    */
-    const newImages = [
-        images[images.length - 1],
-        ...images.slice(0, images.length - 1),
-        
-    ];
-    return newImages;
-}
+    function moveToLeftOfCarousel(node) {
+        // handle when image goes from left side of carousel to right side
+        // we don't want it to overlap the visible images
+        if (isOnRightOfCarousel(node)) {
+            node.style.opacity = "0";
+            node.addEventListener("transitionend", handleTransitionEnd);
+        }
 
-const TRANSLATE_X_REGEX = /.*\((-?\d*)%\)/;
-function getTransform(node) {
-    if (!node) {
-        return;
+        moveToLeftOfCarouselWithOffset(node, 0);
     }
 
-    const { transform } = node.style;
+    function moveToRightOfCarousel(node) {
+        // handle when image goes from right side of carousel to left side
+        // we don't want it to overlap the visible images
+        if (isOnLeftOfCarousel(node)) {
+            node.style.opacity = "0";
+            node.addEventListener("transitionend", handleTransitionEnd);
+        }
 
-    if (transform === "") {
-        return 0;
+        moveToLeftOfCarouselWithOffset(node, 400);
     }
 
-    const parsedTransform = TRANSLATE_X_REGEX.exec(transform);
-    return +parsedTransform[1];
-}
+    function isOnRightOfCarousel(node) {
+        return getTransform(node) === leftOfCarouselTranslates[node.dataset.index] + 400;
+    }
 
-class MyCarousel extends HTMLElement {
-    constructor() {
-        super();
-        this.attachShadow({ mode: "open" });
+    function isOnLeftOfCarousel(node) {
+        return leftOfCarouselTranslates[node.dataset.index] === getTransform(node);
+    }
 
-        this.handleNextButtonClick = this.handleNextButtonClick.bind(this);
-        this.handlePreviousButtonClick = this.handlePreviousButtonClick.bind(this);
+    function handleTransitionEnd() {
+        this.removeEventListener("transitionend", handleTransitionEnd);
+        this.style.opacity = "1";
+    }
 
-        this.shadowRoot.innerHTML = `
-            <style>
-                * {
-                    box-sizing: border-box;
-                }
+    function moveToLeftOfCarouselWithOffset(node, offset) {
+        translateX(node, leftOfCarouselTranslates[node.dataset.index] + offset);
+    }
 
-                .carousel {
-                    width: 100%;
-                    overflow: hidden;
-                }
+    function moveToLeftMost(node) {
+        moveToLeftOfCarouselWithOffset(node, 100);
+    }
 
-                .carousel-inner {
-                    display: flex;
-                    position: relative;
-                }
+    function moveToCenter(node) {
+        moveToLeftOfCarouselWithOffset(node, 200);
+    }
 
-                .carousel-img {
-                    display: flex;
-                    justify-content: center;
-                    flex: 0 0 50%;
-                    transition: transform 0.3s ease-in-out;
-                    height: 550px;
-                }
+    function moveToRightMost(node) {
+        moveToLeftOfCarouselWithOffset(node, 300);
+    }
 
-                .carousel-img img {
-                    height: 100%;
-                }
+    function translateX(node, amount) {
+        node.style.transform = `translateX(${amount}%)`;
+    }
 
-                .carousel-previous {
-                    position: absolute;
-                    top: 0;
-                    bottom: 0;
-                    left: 0;
-                    z-index: 999;
-                    cursor: pointer;
-                    width: 250px;
-                    opacity: 0;
-                }
+    function positionImages(images) {
+        const [
+            leftSideOfCarousel,
+            leftmostImage,
+            centerImage,
+            rightmostImage,
+            rightSideOfCarousel,
+            anotherRightSideOfCarousel
+        ] = images;
 
-                .carousel-next {
-                    position: absolute;
-                    top: 0;
-                    bottom: 0;
-                    right: 0;
-                    z-index: 999;
-                    cursor: pointer;
-                    width: 250px;
-                    opacity: 0;
-                }
-            </style>
-            <div class="js-carousel carousel">
-                <div class="js-carousel-inner carousel-inner">
-                    <slot></slot>
-                    <button class="js-carousel-previous carousel-previous">Previous image</button>
-                    <button class="js-carousel-next carousel-next">Next image</button>
-                </div>
-            </div>
+        moveToLeftOfCarousel(leftSideOfCarousel);
+        moveToLeftMost(leftmostImage)
+        moveToCenter(centerImage)
+        moveToRightMost(rightmostImage)
+        moveToRightOfCarousel(rightSideOfCarousel)
+        moveToRightOfCarousel(anotherRightSideOfCarousel);
+    }
 
-        `
-        this.previousButtonEle = this.shadowRoot.querySelector(".js-carousel-previous");
-        this.nextButtonEle = this.shadowRoot.querySelector(".js-carousel-next");
-        this.carouselInnerEle = this.shadowRoot.querySelector(".js-carousel-inner");
+    function moveCarouselForward(images) {
+        /*
+        3 [ 1 2 3 ] 1 2
+        becomes
+        1 [ 2 3 1 ] 2 3
+        */
+        const newImages = [
+            ...images.slice(1),
+            images[0]
+        ];
+        return newImages;
+    }
 
-        this.createDuplicateImages();
+    function moveCarouselBack(images) {
+        /*
+        3 [ 1 2 3 ] 1 2
+        becomes
+        2 [ 3 1 2 ] 3 1
+        */
+        const newImages = [
+            images[images.length - 1],
+            ...images.slice(0, images.length - 1),
+            
+        ];
+        return newImages;
+    }
 
-        this.images = [
-            this.duplicatedImages[2],
-            ...this.originalImages,
-            this.duplicatedImages[0],
-            this.duplicatedImages[1]
+    const TRANSLATE_X_REGEX = /.*\((-?\d*)%\)/;
+    function getTransform(node) {
+        if (!node) {
+            return;
+        }
+
+        const { transform } = node.style;
+
+        if (transform === "") {
+            return 0;
+        }
+
+        const parsedTransform = TRANSLATE_X_REGEX.exec(transform);
+        return +parsedTransform[1];
+    }
+
+    const previousButtonEle = document.querySelector(".js-carousel-previous");
+    const nextButtonEle = document.querySelector(".js-carousel-next");
+    const carouselInnerEle = document.querySelector(".js-carousel-inner");
+    let originalImages;
+    let duplicatedImages;
+    let images;
+
+    function init() {
+        createDuplicateImages();
+
+        images = [
+            duplicatedImages[2],
+            ...originalImages,
+            duplicatedImages[0],
+            duplicatedImages[1]
         ];
 
-        positionImages(this.images);
-        this.addEventListeners()
+        positionImages(images);
+        addEventListeners();
     }
 
-    createDuplicateImages() {
-        this.originalImages = this.querySelectorAll(".js-carousel-img");
-        this.originalImages.forEach((image, index) => {
+    function createDuplicateImages() {
+        originalImages = document.querySelectorAll(".js-carousel-img");
+        originalImages.forEach((image, index) => {
             image.setAttribute("data-index", index);
         });
-        this.duplicatedImages = [...this.originalImages].map(image => {
+        duplicatedImages = [...originalImages].map(image => {
             return image.cloneNode(true);
         });
-        this.duplicatedImages.forEach((image, index) => {
+        duplicatedImages.forEach((image, index) => {
             image.setAttribute("data-index", index + 3);
-            // TODO: This does not add elements to shadow DOM?
-            this.carouselInnerEle.appendChild(image);
+            carouselInnerEle.appendChild(image);
         });
     }
 
-    addEventListeners() {
-        this.nextButtonEle.addEventListener("click", this.handleNextButtonClick);
-        this.previousButtonEle.addEventListener("click", this.handlePreviousButtonClick);
+    function addEventListeners() {
+        nextButtonEle.addEventListener("click", handleNextButtonClick);
+        previousButtonEle.addEventListener("click", handlePreviousButtonClick);
     }
 
-    handleNextButtonClick() {
-        this.images = moveCarouselForward(this.images);
-        positionImages(this.images);
+    function handleNextButtonClick(e) {
+        images = moveCarouselForward(images);
+        positionImages(images);
     }
 
-    handlePreviousButtonClick() {
-        this.images = moveCarouselBack(this.images);
-        positionImages(this.images);
+    function handlePreviousButtonClick(e) {
+        images = moveCarouselBack(images);
+        positionImages(images);
     }
-}
 
-window.customElements.define("my-carousel", MyCarousel);
+    init();
+})();
