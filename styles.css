@@ -35,6 +35,11 @@ html, body {
     margin: 30px 80px;
 }
 
+.mid-text {
+    margin-top: 90px;
+    margin-bottom: 90px;
+}
+
 .last-text {
     margin-bottom: 90px;
 }
@@ -45,6 +50,14 @@ html, body {
 
 .link:hover {
     color: #FFEB60;
+}
+
+.contact-link {
+    font-size: 18px;
+}
+
+.contact-link--container:not(:last-child) {
+    margin-bottom: 18px;
 }
 
 .uppercase {
@@ -61,13 +74,18 @@ html, body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    padding: 130px 65px;
+    padding: 130px 80px;
     position: relative;
 }
 
 .content-container {
     max-width: 800px;
     width: 100%;
+}
+
+.content-container--footer {
+    position: relative;
+    top: 50px;
 }
 
 .page-container--title {
@@ -132,10 +150,6 @@ html, body {
 
 .flex-wrap {
     flex-wrap: wrap;
-}
-
-.flex-50 {
-    flex: 0 0 50%;
 }
 
 .flex-66 {
@@ -250,6 +264,23 @@ html, body {
     }
 }
 
+.two-by-two-column {
+    width: 50%;
+    float: left;
+}
+
+.two-by-two-column:first-child {
+    padding-right: 12.5px;
+}
+
+.two-by-two-column:last-child {
+    padding-left: 12.5px;
+}
+
+.two-by-two-column img:not(:last-child) {
+    margin-bottom: 25px;
+}
+
 .three-by-three-column {
     width: 33%;;
     float: left;
@@ -270,4 +301,21 @@ html, body {
 
 .three-by-three-column:nth-child(3) {
     padding-left: 16.66px;
+}
+
+.pooh-flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pooh-flex--first-half {
+    width: 64%;
+}
+
+.pooh-flex--second-half {
+    width: 33%;
+}
+
+.pooh-flex--second-half img {
+    margin-bottom: 13px;
 }
