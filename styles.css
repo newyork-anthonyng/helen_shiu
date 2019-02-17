@@ -85,7 +85,7 @@ html, body {
 
 .content-container--footer {
     position: relative;
-    top: 50px;
+    top: 150px;
 }
 
 .page-container--title {
@@ -166,7 +166,7 @@ html, body {
 }
 
 .margin-bottom-170 {
-    margin-bottom: 170px;
+    margin-bottom: 150px;
 }
 
 .width-300 {
@@ -318,4 +318,8 @@ html, body {
 
 .pooh-flex--second-half img {
     margin-bottom: 13px;
+}
+
+.content-container--footer-text-container {
+    margin-bottom: 65px;
 }
