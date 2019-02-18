@@ -23,9 +23,20 @@ html, body {
     align-items: center;
 }
 
-.page-container.footer-container {
+.footer__container {
+    display: flex;
     padding-bottom: 70px;
     padding-top: 70px;
+}
+
+.footer__header {
+    margin-bottom: 100px;
+}
+
+.footer__link-list {
+    list-style-type: none;
+    margin-bottom: 150px;
+    padding: 0;
 }
 
 .text {
@@ -86,12 +97,6 @@ html, body {
 .content-container--footer {
     position: relative;
     top: 150px;
-}
-
-.page-container--title {
-    align-items: center;
-    display: flex;
-    justify-content: center;
 }
 
 .title-image {
@@ -161,58 +166,9 @@ html, body {
     opacity: 0;
 }
 
-.flex {
-    display: flex;
-}
-
-.flex-column {
-    flex-direction: column;
-}
-
-.justify-content-space-between {
-    justify-content: space-between;
-}
-
-.justify-content-center {
-    justify-content: center;
-}
-
-.align-items-center {
-    align-items: center;
-}
-
-.flex-wrap {
-    flex-wrap: wrap;
-}
-
-.flex-66 {
-    flex: 0 0 66%;
-}
-
-.list {
-    list-style-type: none;
-    padding: 0;
-}
-
-.margin-bottom-100 {
-    margin-bottom: 100px;
-}
-
-.margin-bottom-170 {
-    margin-bottom: 150px;
-}
-
-.width-300 {
-    width: 300px;
-}
-
 .margin-center {
     margin-left: auto;
     margin-right: auto;
-}
-
-.font-size-15 {
-    font-size: 15px !important;
 }
 
 .menu {
@@ -297,20 +253,20 @@ html, body {
     }
 }
 
-.two-by-two-column {
+.pooh__two-by-two-column {
     width: 50%;
     float: left;
 }
 
-.two-by-two-column:first-child {
+.pooh__two-by-two-column:first-child {
     padding-right: 12.5px;
 }
 
-.two-by-two-column:last-child {
+.pooh__two-by-two-column:last-child {
     padding-left: 12.5px;
 }
 
-.two-by-two-column img:not(:last-child) {
+.pooh__two-by-two-column img:not(:last-child) {
     margin-bottom: 25px;
 }
 
@@ -341,6 +297,11 @@ html, body {
     justify-content: space-between;
 }
 
+.pooh__two-by-two-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .pooh-flex--first-half {
     width: 64%;
 }
@@ -355,4 +316,5 @@ html, body {
 
 .content-container--footer-text-container {
     margin-bottom: 65px;
+    width: 300px;
 }
