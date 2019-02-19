@@ -68,7 +68,7 @@ html, body {
 }
 
 .contact-link--container:not(:last-child) {
-    margin-bottom: 18px;
+    margin-bottom: 10px;
 }
 
 .uppercase {
@@ -96,7 +96,7 @@ html, body {
 
 .content-container--footer {
     position: relative;
-    top: 150px;
+    top: 75px;
 }
 
 .title-image {
@@ -188,16 +188,20 @@ html, body {
 }
 
 .menu-link-list-item {
-    margin-bottom: 16px;
+    margin-bottom: 22px;
 }
 
 .menu-link {
-    font-size: 13px;
+    font-size: 16px;
     text-decoration: none;
 }
 
+.menu-link:visited {
+    color: #000000;
+}
+
 .menu-link.active {
-    color: red;
+    color: #FFEB60;
 }
 
 .wiggle {
