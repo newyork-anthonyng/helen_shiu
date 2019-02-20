@@ -33,7 +33,7 @@ nextLink.addEventListener("click", function(e) {
 document.addEventListener("scroll", function() {
     let currentView;
 
-    for (let i = 0; i < pageContainers.length; i++) {
+    for (let i = pageContainers.length - 1; i >= 0; i--) {
         const currentPageContainer = pageContainers[i];
 
         if (isInView(currentPageContainer)) {
