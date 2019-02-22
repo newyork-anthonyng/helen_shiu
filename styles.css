@@ -11,10 +11,19 @@ html, body {
 
 .header {
     color: #FFEB60;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 500;
-    margin: 0 0 80px 0;
+    margin: 0 0 40px 0;
     text-transform: uppercase;
+    padding: 0 50px;
+}
+
+@media (min-width: 500px) {
+    .header {
+        font-size: 25px;
+        margin: 0 0 80px 0;
+        padding: 0;
+    }
 }
 
 .title-container {
@@ -30,7 +39,13 @@ html, body {
 }
 
 .footer__header {
-    margin-bottom: 100px;
+    margin-bottom: 65px;
+}
+
+@media (min-width: 500px) {
+    .footer__header {
+        margin-bottom: 100px;
+    }
 }
 
 .footer__link-list {
@@ -41,9 +56,16 @@ html, body {
 
 .text {
     color: black;
-    font-size: 20px;
+    font-size: 14px;
     font-weight: 300;
-    margin: 30px 80px;
+    margin: 25px 80px;
+}
+
+@media (min-width: 500px) {
+    .text {
+        font-size: 20px;
+        margin: 30px 80px;
+    }
 }
 
 .mid-text {
@@ -52,7 +74,13 @@ html, body {
 }
 
 .last-text {
-    margin-bottom: 90px;
+    margin-bottom: 60px;
+}
+
+@media (min-width: 500px) {
+    .last-text {
+        margin-bottom: 90px;
+    }
 }
 
 .link {
@@ -63,8 +91,14 @@ html, body {
     color: #FFEB60;
 }
 
-.contact-link {
-    font-size: 18px;
+#about-me .contact-link {
+    font-size: 16px;
+}
+
+@media (min-width: 500px) {
+    #about-me .contact-link {
+        font-size: 18px;
+    }
 }
 
 .contact-link--container:not(:last-child) {
@@ -85,8 +119,14 @@ html, body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    padding: 130px 80px;
+    padding: 25px 0;
     position: relative;
+}
+
+@media (min-width: 500px) {
+    .page-container {
+        padding: 75px 68px;
+    }
 }
 
 .content-container {
@@ -96,7 +136,13 @@ html, body {
 
 .content-container--footer {
     position: relative;
-    top: 75px;
+    top: 100px;
+}
+
+@media (min-width: 500px) {
+    .content-container--footer {
+        top: 75px;
+    }
 }
 
 .title-image {
@@ -114,7 +160,14 @@ html, body {
 }
 
 .image--full-width {
+    padding: 0 50px;
     width: 100%;
+}
+
+@media (min-width: 500px) {
+    .image--full-width {
+        padding: 0;
+    }
 }
 
 .image--full-width:not(:last-child) {
@@ -132,7 +185,13 @@ html, body {
     justify-content: center;
     flex: 0 0 50%;
     transition: transform 0.3s ease-in-out;
-    height: 550px;
+    height: 315px;
+}
+
+@media (min-width: 500px) {
+    .carousel-img {
+        height: 550px;
+    }
 }
 
 .carousel-inner {
@@ -224,13 +283,27 @@ html, body {
 }
 
 #about-me .text {
-    margin: 0 0 20px 0;
+    margin: 0 50px 20px 50px;
+    font-size: 18px;
+}
+
+@media (min-width: 500px) {
+    #about-me .text {
+        margin: 0 0 20px 0;
+        font-size: 20px;
+    }
 }
 
 .copyright {
-    font-size: 17px;
+    font-size: 13px;
     font-weight: 300;
     text-transform: uppercase;
+}
+
+@media (min-width: 500px) {
+    .copyright {
+        font-size: 17px;
+    }
 }
 
 @keyframes wobble {
@@ -256,6 +329,8 @@ html, body {
       transform: translate3d(0, 0, 0);
     }
 }
+
+
 
 .pooh__two-by-two-column {
     width: 50%;
@@ -299,11 +374,25 @@ html, body {
 .pooh-flex {
     display: flex;
     justify-content: space-between;
+    padding: 0 50px;
+}
+
+@media (min-width: 500px) {
+    .pooh-flex {
+        padding: 0;
+    }
 }
 
 .pooh__two-by-two-container {
     display: flex;
     flex-wrap: wrap;
+    padding: 0 50px;
+}
+
+@media (min-width: 500px) {
+    .pooh__two-by-two-container {
+        padding: 0;
+    }
 }
 
 .pooh-flex--first-half {
@@ -319,6 +408,22 @@ html, body {
 }
 
 .content-container--footer-text-container {
-    margin-bottom: 65px;
+    margin-bottom: 50px;
     width: 300px;
+}
+
+@media (min-width: 500px) {
+    .content-container--footer-text-container {
+        margin-bottom: 65px;
+    }
+}
+
+.image-columns--container {
+    padding: 0 50px;
+}
+
+@media (min-width: 500px) {
+    .image-columns--container {
+        padding: 0;
+    }
 }
