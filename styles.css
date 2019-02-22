@@ -153,6 +153,13 @@ html, body {
 .title-image--container {
     position: relative;
     top: -35px;
+    padding: 0 50px;
+}
+
+@media (min-width: 500px) {
+    .title-image--container {
+        padding: 0;
+    }
 }
 
 .full-width {
