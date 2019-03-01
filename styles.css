@@ -58,7 +58,7 @@ html, body {
     color: black;
     font-size: 14px;
     font-weight: 300;
-    margin: 25px 80px;
+    margin: 25px 65px;
 }
 
 @media (min-width: 500px) {
@@ -74,7 +74,7 @@ html, body {
 }
 
 .last-text {
-    margin-bottom: 60px;
+    margin-bottom: 50px;
 }
 
 @media (min-width: 500px) {
@@ -91,13 +91,23 @@ html, body {
     color: #FFEB60;
 }
 
-#about-me .contact-link {
-    font-size: 16px;
+.contact-link {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 17px;
+    color: black;
+    font-weight: 300;
+    margin: 25px 65px;
+}
+
+.contact-link:hover {
+    color: #FFEB60;
 }
 
 @media (min-width: 500px) {
-    #about-me .contact-link {
+    .contact-link {
         font-size: 18px;
+        margin: 30px 80px
     }
 }
 
@@ -119,7 +129,7 @@ html, body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    padding: 25px 0;
+    padding: 75px 0 50px 0;
     position: relative;
 }
 
@@ -136,7 +146,7 @@ html, body {
 
 .content-container--footer {
     position: relative;
-    top: 100px;
+    top: 138px;
 }
 
 @media (min-width: 500px) {
@@ -147,7 +157,13 @@ html, body {
 
 .title-image {
     max-width: 365px;
-    width: 100%;
+    width: 95%;
+}
+
+@media (min-width: 500px) {
+    .title-image {
+        width: 100%;
+    }
 }
 
 .title-image--container {
@@ -167,7 +183,7 @@ html, body {
 }
 
 .image--full-width {
-    padding: 0 50px;
+    padding: 0 35px;
     width: 100%;
 }
 
@@ -302,14 +318,17 @@ html, body {
 }
 
 .copyright {
-    font-size: 13px;
+    color: black;
+    font-size: 15px;
     font-weight: 300;
     text-transform: uppercase;
+    margin: 25px 65px;
 }
 
 @media (min-width: 500px) {
     .copyright {
         font-size: 17px;
+        margin: 30px 80px;
     }
 }
 
