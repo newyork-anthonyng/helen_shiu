@@ -145,13 +145,12 @@ html, body {
 }
 
 .content-container--footer {
-    position: relative;
-    top: 138px;
+    margin-top: 138px;
 }
 
 @media (min-width: 500px) {
     .content-container--footer {
-        top: 75px;
+        margin-top: 75px;
     }
 }
 
