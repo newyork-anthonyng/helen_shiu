@@ -207,13 +207,8 @@ html, body {
     justify-content: center;
     flex: 0 0 50%;
     transition: transform 0.3s ease-in-out;
-    height: 315px;
-}
-
-@media (min-width: 500px) {
-    .carousel-img {
-        height: 550px;
-    }
+    align-items: center;
+    padding: 0 12.5px;
 }
 
 .carousel-inner {
@@ -222,29 +217,27 @@ html, body {
 }
 
 .carousel-img img {
-    height: 100%;
+    height: auto;
+    width: 100%;
+    max-width: 500px;
 }
 
-.carousel-previous {
+.carousel__button {
     position: absolute;
     top: 0;
     bottom: 0;
+    z-index: 999;
+    cursor: pointer;
+    width: 50%;
+    opacity: 0;
+}
+
+.carousel__button-previous {
     left: 0;
-    z-index: 999;
-    cursor: pointer;
-    width: 250px;
-    opacity: 0;
 }
 
-.carousel-next {
-    position: absolute;
-    top: 0;
-    bottom: 0;
+.carousel__button-next {
     right: 0;
-    z-index: 999;
-    cursor: pointer;
-    width: 250px;
-    opacity: 0;
 }
 
 .margin-center {
