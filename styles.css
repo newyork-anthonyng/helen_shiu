@@ -34,7 +34,7 @@ html, body {
 
 .footer__container {
     display: flex;
-    padding-bottom: 70px;
+    padding-bottom: 0 !important;
     padding-top: 70px;
 }
 
@@ -404,7 +404,7 @@ html, body {
 .pooh__two-by-two-container {
     display: flex;
     flex-wrap: wrap;
-    padding: 0 50px;
+    padding: 0 35px;
 }
 
 @media (min-width: 500px) {
@@ -437,7 +437,7 @@ html, body {
 }
 
 .image-columns--container {
-    padding: 0 50px;
+    padding: 0 35px;
 }
 
 @media (min-width: 500px) {
