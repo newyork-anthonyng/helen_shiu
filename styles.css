@@ -414,15 +414,27 @@ html, body {
 }
 
 .pooh-flex--first-half {
-    width: 64%;
+    width: 66%;
+    position: relative;
+    padding-top: 81%; /* This value is used to maintain aspect ratio of image */
+}
+
+.pooh-flex--first-half-image {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: url("./assets/winnie/07.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .pooh-flex--second-half {
     width: 33%;
-}
-
-.pooh-flex--second-half img {
-    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .content-container--footer-text-container {
