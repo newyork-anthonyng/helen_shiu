@@ -34,8 +34,9 @@ html, body {
 
 .footer__container {
     display: flex;
-    padding-bottom: 0 !important;
-    padding-top: 70px;
+    padding: 0 !important;
+    justify-content: space-around;
+    height: 100vh;
 }
 
 .footer__header {
@@ -142,16 +143,6 @@ html, body {
 .content-container {
     max-width: 800px;
     width: 100%;
-}
-
-.content-container--footer {
-    margin-top: 138px;
-}
-
-@media (min-width: 500px) {
-    .content-container--footer {
-        margin-top: 115px;
-    }
 }
 
 .title-image {
@@ -293,8 +284,6 @@ html, body {
 }
 
 .top-arrow-link {
-    position: absolute;
-    top: 75px;
     text-decoration: none;
 }
 
