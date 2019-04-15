@@ -1,6 +1,7 @@
 const pageContainers = document.querySelectorAll(".page-container");
 const previousLink = document.querySelector(".js-previous-link");
 const nextLink = document.querySelector(".js-next-link");
+const menu = document.querySelector(".js-menu");
 
 const menuLinkObject = {};
 const menuLinks = document.querySelectorAll(".js-menu-link");
@@ -30,7 +31,9 @@ nextLink.addEventListener("click", function(e) {
     location.href = `#${nextSibling.getAttribute("id")}`;
 });
 
-document.addEventListener("scroll", function() {
+document.addEventListener("scroll", handleScroll);
+
+function handleScroll() {
     let currentView;
 
     for (let i = pageContainers.length - 1; i >= 0; i--) {
@@ -48,20 +51,30 @@ document.addEventListener("scroll", function() {
     }
 
     const id = currentView.getAttribute("id");
-    if (activeMenuLink !== id) {
-        const oldMenuLink = menuLinkObject[activeMenuLink];
-        if (oldMenuLink) {
-            oldMenuLink.classList.remove("active");
-        }
 
-        const newActiveView = menuLinkObject[id];
-        if (newActiveView) {
-            newActiveView.classList.add("active");
-        }
-
-        activeMenuLink = id;
+    if (activeMenuLink === id) {
+        return;
     }
-});
+
+    // hide menu links if on 'Home' or 'About Me' page
+    if (id === "home" || id === "about-me") {
+        menu.classList.add("hidden");
+    } else {
+        menu.classList.remove("hidden");
+    }
+
+    const oldMenuLink = menuLinkObject[activeMenuLink];
+    if (oldMenuLink) {
+        oldMenuLink.classList.remove("active");
+    }
+
+    const newActiveView = menuLinkObject[id];
+    if (newActiveView) {
+        newActiveView.classList.add("active");
+    }
+
+    activeMenuLink = id;
+}
 
 function isInView(ele) {
     const bounding = ele.getBoundingClientRect();
@@ -71,3 +84,12 @@ function isInView(ele) {
 
     return isInView;
 }
+
+function init() {
+    handleScroll();
+
+    // If page hides menu links when first loaded, we don't want a transition effect.
+    menu.style.transition = `opacity 0.3s ease-in-out`;
+}
+
+init();

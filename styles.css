@@ -126,7 +126,6 @@ html, body {
 
 .page-container {
     align-items: center;
-    border-bottom: 1px solid black;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -245,6 +244,10 @@ html, body {
     bottom: 60px;
     z-index: 999;
     justify-content: space-between;
+}
+
+.menu.hidden {
+    opacity: 0;
 }
 
 .menu-link-list {
