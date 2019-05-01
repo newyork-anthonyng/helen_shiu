@@ -418,9 +418,6 @@ html, body {
     right: 0;
     top: 0;
     bottom: 0;
-    background: url("./assets/winnie/07.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 .pooh-flex--second-half {
