@@ -1,3 +1,12 @@
+# Deploying
+This website is hosted on Github Pages.
+
+```sh
+git checkout gh-pages
+git reset --hard origin/master # or whereever your changes are located
+git push origin gh-pages -f
+```
+
 # Testing
 Images in `snapshots/` represent what the website should look like.
 
