@@ -1,22 +1,296 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Helen Shiu</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400" rel="stylesheet">
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  </head>
-  <body>
-    <div id="app"></div>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Helen Shiu</title>
+        <meta name="description" content="Helen Shiu's Portfolio">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./styles.css">
+        <link rel="shortcut icon" type="image/x-icon" href="./assets/favicon.ico"/>
+    </head>
+    <body>
+        <div class="menu js-menu hidden">
+            <a href="#" class="js-previous-link menu-link" aria-label="Go to previous page">
+                <svg viewBox="0 0 30 30" width="15px" height="15px" style="transform: rotate(180deg)">
+                    <path d="M27.5,4.9L14,18.3L0.5,4.9l3.7-4.3L14,7.1l9.8-6.4L27.5,4.9z"/>
+                </svg>
+            </a>
+            <ul class="menu-link-list">
+                <li class="menu-link-list-item">
+                    <a href="#rbx-active" class="js-menu-link menu-link">1</a>
+                </li>
+                <li class="menu-link-list-item">
+                    <a href="#nest" class="js-menu-link menu-link">2</a>
+                </li>
+                <li class="menu-link-list-item">
+                    <a href="#wanderer" class="js-menu-link menu-link">3</a>
+                </li>
+                <li class="menu-link-list-item">
+                    <a href="#swim-tribe" class="js-menu-link menu-link">4</a>
+                </li>
+                <li class="menu-link-list-item">
+                    <a href="#pooh" class="js-menu-link menu-link">5</a>
+                </li>
+            </ul>
+            <a href="#" class="js-next-link menu-link" aria-label="Go to next page">
+                <svg viewBox="0 0 30 30" width="15px" height="15px">
+                    <path d="M27.5,4.9L14,18.3L0.5,4.9l3.7-4.3L14,7.1l9.8-6.4L27.5,4.9z"/>
+                </svg>
+            </a>
+        </div>
 
-    <script type="text/javascript" src="/home.bundle.js"></script>
-    <noscript>
-      <style>
-        .titleOverlay {
-          display: none;
-        }
-      </style>
-    </noscript>
-  </body>
+        <!-- Title -->
+        <div class="page-container title-container" id="home">
+            <div class="title-image--container">
+                <img class="title-image" src="./assets/helen_shiu.png" alt="Helen Shiu, Graphic Designer">
+            </div>
+            <a href="#rbx-active" class="wiggle bottom-arrow-link" aria-label="RBX Active">
+                <svg viewBox="0 0 30 30" width="15px" height="15px">
+                    <path d="M27.5,4.9L14,18.3L0.5,4.9l3.7-4.3L14,7.1l9.8-6.4L27.5,4.9z"/>
+                </svg>
+            </a>
+        </div>
+
+        <!-- RBX Active -->
+        <div class="page-container" id="rbx-active">
+            <div class="content-container">
+                <h3 class="header">Rbx Active</h3>
+                <p class="text">
+                    RBX Active is a fitness apparel brand focused on fresh and affordable gear for everyone. Below are samples of my work from past email marketing campaigns, print collateral for retail stores, and flat lays and photography for social media.
+                </p>
+
+                <aside class="text italic">
+                    Note: Some photography here are used for presentation purposes only and belong to their respective owners.
+                </aside>
+
+                <p class="text last-text">
+                    Created using Capture One, Illustrator, InDesign, and Photoshop
+                </p>
+
+                <img class="js-lazy image--full-width" src="./assets/placeholder.jpg" data-src="./assets/rbx/00_Coupons-and-Flyers.gif">
+                <!-- <img class="image--full-width" style="margin-bottom: 25px;" src="./assets/rbx/00_Coupons-and-Flyers.gif" alt=""> -->
+            </div>
+
+            <div class="js-carousel carousel">
+                <div class="js-carousel-inner carousel-inner">
+                    <div class="js-carousel-img carousel-img"><img src="./assets/rbx/01_Treat-Yourself-Email.jpg" alt=""></div>
+                    <div class="js-carousel-img carousel-img"><img src="./assets/rbx/02_Cyber-Monday.gif" alt=""></div>
+                    <div class="js-carousel-img carousel-img"><img src="./assets/rbx/03_Buy-More-Save-More-Final-Hours.gif" alt=""></div>
+                    <button class="js-carousel-previous carousel__button carousel__button-previous">Previous image</button>
+                    <button class="js-carousel-next carousel__button carousel__button-next">Next image</button>
+                </div>
+            </div>
+
+            <div class="content-container">
+                <img class="js-lazy image--full-width" src="./assets/placeholder.jpg" data-src="./assets/rbx/04_Survey-Email.gif" alt="">
+                <img class="js-lazy image--full-width" src="./assets/placeholder.jpg" data-src="./assets/rbx/05_Emails.gif" alt="">
+
+                <div class="image-columns--container">
+                    <div class="three-by-three-column">
+                        <img class="js-lazy full-width" src="./assets/placeholder.jpg" data-src="./assets/rbx/06/1.jpg" alt="">
+                        <img class="js-lazy full-width" src="./assets/placeholder.jpg" data-src="./assets/rbx/06/4.jpg" alt="">
+                        <img class="js-lazy full-width" src="./assets/placeholder.jpg" data-src="./assets/rbx/06/7.jpg" alt="">
+                        <img class="js-lazy full-width" src="./assets/placeholder.jpg" data-src="./assets/rbx/06/10.jpg" alt="">
+                        <img class="js-lazy full-width" src="./assets/placeholder.jpg" data-src="./assets/rbx/06/13.jpg" alt="">
+                    </div>
+
+                    <div class="three-by-three-column">
+                        <img class="js-lazy full-width" src="./assets/placeholder.jpg" data-src="./assets/rbx/06/2.jpg" alt="">
+                        <img class="js-lazy full-width" src="./assets/placeholder.jpg" data-src="./assets/rbx/06/5.jpg" alt="">
+                        <img class="js-lazy full-width" src="./assets/placeholder.jpg" data-src="./assets/rbx/06/8.jpg" alt="">
+                        <img class="js-lazy full-width" src="./assets/placeholder.jpg" data-src="./assets/rbx/06/11.jpg" alt="">
+                        <img class="js-lazy full-width" src="./assets/placeholder.jpg" data-src="./assets/rbx/06/14.jpg" alt="">
+                    </div>
+
+                    <div class="three-by-three-column">
+                        <img class="js-lazy full-width" src="./assets/placeholder.jpg" data-src="./assets/rbx/06/3.jpg" alt="">
+                        <img class="js-lazy full-width" src="./assets/placeholder.jpg" data-src="./assets/rbx/06/6.jpg" alt="">
+                        <img class="js-lazy full-width" src="./assets/placeholder.jpg" data-src="./assets/rbx/06/9.jpg" alt="">
+                        <img class="js-lazy full-width" src="./assets/placeholder.jpg" data-src="./assets/rbx/06/12.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nest -->
+        <div class="page-container" id="nest">
+            <div class="content-container">
+                <h3 class="header">Nest</h3>
+                <p class="text">
+                    Borrowing from the folklore of storks delivering babies, I composed a story to build upon the Nest brand and created packaging for chocolate with mothers of newborns in mind. The story goes…
+                </p>
+                <p class="text">
+                    Nothing will ever be the same again as a mother-to-be prepares to sacrifice her chocolate addiction so her newborn could have a healthy beginning. Noticing the cries of these mothers-to-be, storks from all over the world set out on an epic journey to find the best cocoa beans from the Amazon region. After successfully harvesting the cocoa beans, they deliver them to a skilled chocolatier who then carefully crafts them into fine white chocolate. Mothers with newborns will never have to sacrifice again.
+                </p>
+                <p class="text last-text">
+                    Student work created using Illustrator, InDesign and Photoshop
+                </p>
+
+                <img class="js-lazy image--full-width" src="./assets/placeholder.jpg" data-src="./assets/nest/01.jpg" alt="">
+                <img class="js-lazy image--full-width" src="./assets/placeholder.jpg" data-src="./assets/nest/02.jpg" alt="">
+                <img class="js-lazy image--full-width" src="./assets/placeholder.jpg" data-src="./assets/nest/03.jpg" alt="">
+            </div>
+        </div>
+
+        <!-- Wanderer -->
+        <div class="page-container" id="wanderer">
+            <div class="content-container">
+                <h3 class="header">Wanderer</h3>
+                <p class="text">
+                    An editorial design for Wanderer magazine featuring unconventional travel destinations. The cover focuses on captivating readers interested in hidden gems around the world beyond the most popular tourist attractions. The inside spreads are tailored to resemble the look and feel of Industrial Manchester while highlighting their history and attractions.
+                </p>
+                <p class="text last-text">
+                    Student work created using InDesign and Photoshop
+                </p>
+
+                <img class="js-lazy image--full-width" src="./assets/placeholder.jpg" data-src="./assets/wanderer/01.jpg" alt="">
+                <img class="js-lazy image--full-width" src="./assets/placeholder.jpg" data-src="./assets/wanderer/02.jpg" alt="">
+                <img class="js-lazy image--full-width" src="./assets/placeholder.jpg" data-src="./assets/wanderer/03.jpg" alt="">
+            </div>
+        </div>
+
+        <!-- Swim Tribe -->
+        <div class="page-container" id="swim-tribe">
+            <div class="content-container">
+                <h3 class="header">Swim Tribe</h3>
+                <p class="text">
+                    Catered to wild swimming enthusiasts, Swim Tribe is an app that builds a database of swimming holes as a community. The app screens focus on features designed for a specific user journey – to discover swimming holes nearby, read reviews, and bookmark the locations to the user’s travel list.
+                </p>
+                <p class="text last-text">
+                    Student work created using Sketch
+                </p>
+
+                <img class="js-lazy image--full-width" src="./assets/placeholder.jpg" data-src="./assets/swimtribe/01.jpg" alt="">
+                <img class="js-lazy image--full-width" src="./assets/placeholder.jpg" data-src="./assets/swimtribe/02.jpg" alt="">
+            </div>
+        </div>
+
+        <!-- Pooh -->
+        <div class="page-container" id="pooh">
+            <div class="content-container">
+                <h3 class="header">The Complete Tales of Winnie the Pooh</h3>
+                <p class="text">
+                    Combining my favorite childhood Disney character, Winnie the Pooh, and my interest in paper crafts, I redesigned the book cover for The Complete Tales of Winnie the Pooh by A. A. Milne with my interpretation of the stories using card stock paper. The book cover draws from memories of creating elementary school diorama projects, light hearted life lessons, and never ending adventures with friends.
+                </p>
+                <p class="text last-text">
+                    Student work created using InDesign and Photoshop
+                </p>
+
+                <img class="js-lazy image--full-width" src="./assets/placeholder.jpg" data-src="./assets/winnie/01.jpg" alt="">
+                <img class="js-lazy image--full-width" src="./assets/placeholder.jpg" data-src="./assets/winnie/02.jpg" alt="">
+
+                <div class="pooh__two-by-two-container">
+                    <div class="pooh__two-by-two-column">
+                        <img class="js-lazy full-width" src="./assets/placeholder.jpg" data-src="./assets/winnie/03.jpg" alt=""> 
+                        <img class="js-lazy full-width" src="./assets/placeholder.jpg" data-src="./assets/winnie/05.jpg" alt="">
+                    </div>
+                    <div class="pooh__two-by-two-column">
+                        <img class="js-lazy full-width" src="./assets/placeholder.jpg" data-src="./assets/winnie/04.jpg" alt="">
+                        <img class="js-lazy full-width" src="./assets/placeholder.jpg" data-src="./assets/winnie/06.jpg" alt="">
+                    </div>
+                </div>
+
+                <p class="text mid-text">
+                    With more card stock paper available to use, I continued building on my initial creation as a personal side project.
+                </p>
+
+                <div class="pooh-flex">
+                    <div class="pooh-flex--first-half">
+                        <div class="js-lazy pooh-flex--first-half-image" data-background-src="./assets/winnie/07.jpg"></div>
+                    </div>
+
+                    <div class="pooh-flex--second-half">
+                        <img class="js-lazy full-width" src="./assets/placeholder.jpg" data-src="./assets/winnie/08.jpg" alt="">
+                        <img class="js-lazy full-width" src="./assets/placeholder.jpg" data-src="./assets/winnie/09.jpg" alt="">
+                        <img class="js-lazy full-width" src="./assets/placeholder.jpg" data-src="./assets/winnie/10.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Me -->
+        <div class="page-container footer__container" id="about-me">
+            <a href="#pooh" class="wiggle top-arrow-link" aria-label="The Complete Tales of Winnie the Pooh">
+                <svg viewBox="0 0 30 30" width="15px" height="15px" style="transform: rotate(180deg)">
+                    <path d="M27.5,4.9L14,18.3L0.5,4.9l3.7-4.3L14,7.1l9.8-6.4L27.5,4.9z"/>
+                </svg>
+            </a>
+            <div class="content-container content-container--footer">
+                <h3 class="footer__header header">About me</h3>
+
+                <div class="margin-center content-container--footer-text-container">
+                    <p class="text">
+                        My name is Helen Shiu and I’m a NYC based graphic designer currently at RBX Active.
+                    </p>
+                </div>
+
+                <ul class="footer__link-list">
+                    <li class="contact-link--container"><a class="contact-link" href="mailto:helen.shiu@outlook.com">Email</a></li>
+                    <li class="contact-link--container"><a class="contact-link" href="https://www.linkedin.com/in/helen-shiu-62384027" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                </ul>
+
+                <footer class="copyright">© 2019 Helen Shiu. All rights reserved.</footer>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                // https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video/
+                let lazyImages = [].slice.call(document.querySelectorAll(".js-lazy"));
+                let active = false;
+
+                const lazyLoad = () => {
+                    if (active === false) {
+                        active = true;
+
+                        setTimeout(() => {
+                            lazyImages.forEach(lazyImage => {
+                                const boundingRect = lazyImage.getBoundingClientRect();
+                                const threshold = 100;
+                                // TODO: Double check this logic
+                                const isInView = boundingRect.top <= (window.innerHeight + threshold);
+                                // const isInView = (boundingRect.top <= (window.innerHeight + threshold) && boundingRect.bottom >= threshold)
+                                //     && window.getComputedStyle(lazyImage).display !== "none";
+
+                                if (isInView) {
+                                    if (lazyImage.dataset.backgroundSrc) {
+                                        lazyImage.style.background = `url("${lazyImage.dataset.backgroundSrc}")`;
+                                        lazyImage.style.backgroundRepeat = "no-repeat";
+                                        lazyImage.style.backgroundSize = "cover";
+                                    } else if (lazyImage.dataset.src) {
+                                        lazyImage.src = lazyImage.dataset.src;
+                                    }
+
+                                    lazyImage.classList.remove("js-lazy");
+
+                                    lazyImages = lazyImages.filter(image => {
+                                        return image !== lazyImage;
+                                    });
+
+                                    if (lazyImages.length === 0) {
+                                        document.removeEventListener("scroll", lazyLoad);
+                                        window.removeEventListener("resize", lazyLoad);
+                                        window.removeEventListener("orientationchange", lazyLoad);
+                                    }
+                                }
+                            });
+
+                            active = false;
+                        }, 200);
+                    }
+                };
+
+                document.addEventListener("scroll", lazyLoad);
+                window.addEventListener("resize", lazyLoad);
+                window.addEventListener("orientationchange", lazyLoad);
+            });
+            
+        </script>
+        <script src="./carousel.js" async defer></script>
+        <script src="./app.js" async defer></script>
+    </body>
 </html>
